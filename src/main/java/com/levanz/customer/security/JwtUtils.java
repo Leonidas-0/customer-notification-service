@@ -11,7 +11,6 @@ import java.util.function.Function;
 @Component
 public class JwtUtils {
 
-    /* In real apps load from application.yml / environment */
     private final String secret = "VERY_SECRET_CHANGE_ME";
     private final long   ttlMs  = 24 * 60 * 60 * 1000;   // 24 h
 

@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableMethodSecurity                        // Enables @PreAuthorize, etc.
+@EnableMethodSecurity                
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtFilter;
@@ -22,7 +22,6 @@ public class SecurityConfig {
         this.jwtFilter = jwtFilter;
     }
 
-    /** Main security DSL (no deprecated WebSecurityConfigurerAdapter) */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -39,13 +38,11 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /** Expose AuthenticationManager for AuthController (if you add one) */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration cfg) throws Exception {
         return cfg.getAuthenticationManager();
     }
 
-    /** One global PasswordEncoder bean */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

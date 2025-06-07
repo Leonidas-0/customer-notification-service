@@ -4,19 +4,22 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity @Getter @Setter
-@Table(name = "users")               // avoids reserved word issues
-public class User {
+@Entity
+@Table(name = "admins")
+@Getter
+@Setter
+public class Admin {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
-    private String password;         // BCrypt-encoded
+    private String password;  
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role = Role.ADMIN;
 }
