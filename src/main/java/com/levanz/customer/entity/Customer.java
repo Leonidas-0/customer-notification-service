@@ -20,7 +20,7 @@ public class Customer {
     private String lastName;
 
     @Column(nullable = false, unique = true)
-    private String primaryEmail;
+    private String email;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -37,9 +37,9 @@ public class Customer {
 
 
     public String getEmail() {         
-        return primaryEmail;
+        return email;
     }
     public void setEmail(String email) {
-        this.primaryEmail = email;
+        this.email = email;
     }
 }

@@ -3,20 +3,30 @@ package com.levanz.customer.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
-/**
- *  Single DTO used for both create/update requests and responses.
- *  — If you return it from controllers, Jackson will simply serialise it to JSON.
- */
-public record CustomerDto(
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-        @NotBlank                  @Size(max = 100)
-        String firstName,
 
-        @NotBlank                  @Size(max = 100)
-        String lastName,
+@Data
+public class CustomerDto {
 
-        @NotBlank @Email           @Size(max = 150)
-        String email
+    private Long id;
 
-) {}
+    @NotBlank @Size(max = 60)
+    private String firstName;
+
+    @NotBlank @Size(max = 60)
+    private String lastName;
+
+    @Email @NotBlank
+    private String email;          
+
+    private LocalDateTime createdAt;
+
+    private List<AddressDto>            addresses     = new ArrayList<>();
+    private List<PreferenceDto>         preferences   = new ArrayList<>();
+    private List<NotificationStatusDto> notifications = new ArrayList<>();
+}

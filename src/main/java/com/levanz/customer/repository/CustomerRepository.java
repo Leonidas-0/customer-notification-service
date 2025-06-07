@@ -10,11 +10,11 @@ public interface CustomerRepository
         extends JpaRepository<Customer, Long>,
                 JpaSpecificationExecutor<Customer> {
 
-    boolean existsByPrimaryEmail(String primaryEmail);
+    boolean existsByEmail(String email);
 
     Page<Customer> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(
             String firstName,
             String lastName,
-            Pageable pageable
-    );
+            Pageable pageable);
 }
+

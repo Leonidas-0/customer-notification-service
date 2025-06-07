@@ -18,51 +18,67 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository repo;
-    private final CustomerMapper mapper;   // MapStruct or manual mapper
 
-    /* ─── Create ─────────────────────────────────────────────── */
+    /* ---------- CRUD ---------- */
 
     @Override
     public CustomerDto create(CustomerDto dto) {
-        Customer saved = repo.save(mapper.toEntity(dto));
-        return mapper.toDto(saved);
+        Customer saved = repo.save(toEntity(dto));
+        return toDto(saved);
     }
-
-    /* ─── Read ───────────────────────────────────────────────── */
 
     @Override
     public CustomerDto one(Long id) {
-        return repo.findById(id)
-                   .map(mapper::toDto)
-                   .orElseThrow(() -> new ResponseStatusException(
-                           NOT_FOUND, "Customer " + id + " not found"));
+        return toDto(findOrThrow(id));
+    }
+
+    @Override
+    public CustomerDto update(Long id, CustomerDto dto) {
+        Customer existing = findOrThrow(id);
+        copy(dto, existing);
+        return toDto(repo.save(existing));
+    }
+
+    @Override
+    public void delete(Long id) {
+        repo.delete(findOrThrow(id));
     }
 
     @Override
     public Page<CustomerDto> search(String q, Pageable p) {
-        return repo.search(q, p)           // <- your custom query method
-                   .map(mapper::toDto);
+        // simple example – adjust to your needs
+        return repo.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(q, q, p)
+                   .map(this::toDto);
     }
 
-    /* ─── Update ────────────────────────────────────────────── */
+    /* ---------- helpers ---------- */
 
-    @Override
-    public CustomerDto update(Long id, CustomerDto dto) {
-        Customer existing = repo.findById(id)
-                                .orElseThrow(() -> new ResponseStatusException(
-                                        NOT_FOUND, "Customer " + id + " not found"));
-
-        mapper.updateEntity(dto, existing);   // copy non-null fields
-        return mapper.toDto(repo.save(existing));
+    private Customer findOrThrow(Long id) {
+        return repo.findById(id)
+                   .orElseThrow(() -> new ResponseStatusException(
+                           NOT_FOUND, "Customer not found: " + id));
     }
 
-    /* ─── Delete ────────────────────────────────────────────── */
+    /* Entity ↔ DTO conversions */
 
-    @Override
-    public void delete(Long id) {
-        if (!repo.existsById(id)) {
-            throw new ResponseStatusException(NOT_FOUND, "Customer " + id + " not found");
-        }
-        repo.deleteById(id);
+    private Customer toEntity(CustomerDto dto) {
+        Customer c = new Customer();
+        copy(dto, c);
+        return c;
+    }
+
+    private CustomerDto toDto(Customer c) {
+        CustomerDto dto = new CustomerDto();
+        dto.setId(c.getId());
+        dto.setFirstName(c.getFirstName());
+        dto.setLastName(c.getLastName());
+        dto.setEmail(c.getEmail());
+        return dto;
+    }
+
+    private void copy(CustomerDto src, Customer target) {
+        target.setFirstName(src.getFirstName());
+        target.setLastName(src.getLastName());
+        target.setEmail(src.getEmail());
     }
 }

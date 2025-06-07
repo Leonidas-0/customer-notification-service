@@ -26,11 +26,9 @@ public class JwtUtils {
 
     @PostConstruct
     private void initKey() {
-        // Decode only once; if the property is wrong the app fails fast here
         key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(base64Secret));
     }
 
-    /* ── token generation ────────────────────────────────────────── */
     public String generateToken(Authentication auth) {
         return Jwts.builder()
                 .setSubject(auth.getName())

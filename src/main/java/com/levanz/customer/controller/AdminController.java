@@ -22,7 +22,6 @@ public class AdminController {
         this.service = service;
     }
 
-    /* ── Create ─────────────────────────────────────────────── */
     @PostMapping
     public ResponseEntity<Admin> create(@Valid @RequestBody AdminDto dto) {
         Admin toCreate = new Admin(dto.getUsername(),
@@ -31,7 +30,6 @@ public class AdminController {
         return ResponseEntity.ok(service.create(toCreate));
     }
 
-    /* ── Read ───────────────────────────────────────────────── */
     @GetMapping
     public ResponseEntity<List<Admin>> list() {
         return ResponseEntity.ok(service.getAll());
@@ -42,7 +40,6 @@ public class AdminController {
         return ResponseEntity.ok(service.getById(id));
     }
 
-    /* ── Update ─────────────────────────────────────────────── */
     @PutMapping("/{id}")
     public ResponseEntity<Admin> update(@PathVariable Long id,
                                         @Valid @RequestBody AdminDto dto) {
@@ -52,7 +49,6 @@ public class AdminController {
         return ResponseEntity.ok(service.update(id, toUpdate));
     }
 
-    /* ── Delete ─────────────────────────────────────────────── */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);

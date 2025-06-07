@@ -26,6 +26,7 @@
         <springdoc.version>2.1.0</springdoc.version>
         <lombok.version>1.18.30</lombok.version>
         <jjwt.version>0.11.5</jjwt.version>
+  <mapstruct.version>1.5.5.Final</mapstruct.version>
     </properties>
 
     <!-- ── Dependencies ────────────────────────────────────────── -->
@@ -49,7 +50,18 @@
             <artifactId>spring-boot-starter-mail</artifactId>
             <optional>true</optional>
         </dependency>
-
+  <dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct</artifactId>
+    <version>${mapstruct.version}</version>
+  </dependency>
+  <!-- MapStruct annotation processor (provided at compile time) -->
+  <dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct-processor</artifactId>
+    <version>${mapstruct.version}</version>
+    <scope>provided</scope>
+  </dependency>
         <!-- JSON / Jackson helpers (optional explicit pins) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
