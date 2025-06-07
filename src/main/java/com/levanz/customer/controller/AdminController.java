@@ -1,13 +1,13 @@
 package com.levanz.customer.controller;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-
 import com.levanz.customer.dto.AdminDto;
 import com.levanz.customer.entity.Admin;
+import com.levanz.customer.entity.Role;
 import com.levanz.customer.service.AdminService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,12 +22,16 @@ public class AdminController {
         this.service = service;
     }
 
+    /* ── Create ─────────────────────────────────────────────── */
     @PostMapping
-    public ResponseEntity<Admin> create(@Validated @RequestBody AdminDto dto) {
-        Admin toCreate = new Admin(dto.getUsername(), dto.getPassword(), dto.getRole());
+    public ResponseEntity<Admin> create(@Valid @RequestBody AdminDto dto) {
+        Admin toCreate = new Admin(dto.getUsername(),
+                                   dto.getPassword(),
+                                   Role.ADMIN);
         return ResponseEntity.ok(service.create(toCreate));
     }
 
+    /* ── Read ───────────────────────────────────────────────── */
     @GetMapping
     public ResponseEntity<List<Admin>> list() {
         return ResponseEntity.ok(service.getAll());
@@ -38,16 +42,19 @@ public class AdminController {
         return ResponseEntity.ok(service.getById(id));
     }
 
+    /* ── Update ─────────────────────────────────────────────── */
     @PutMapping("/{id}")
-    public ResponseEntity<Admin> update(
-            @PathVariable Long id,
-            @Validated @RequestBody AdminDto dto) {
-        Admin toUpdate = new Admin(dto.getUsername(), dto.getPassword(), dto.getRole());
+    public ResponseEntity<Admin> update(@PathVariable Long id,
+                                        @Valid @RequestBody AdminDto dto) {
+        Admin toUpdate = new Admin(dto.getUsername(),
+                                   dto.getPassword(),
+                                   Role.ADMIN);
         return ResponseEntity.ok(service.update(id, toUpdate));
     }
 
+    /* ── Delete ─────────────────────────────────────────────── */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }

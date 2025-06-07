@@ -2,14 +2,14 @@ package com.levanz.customer.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity
-@Table(name = "admins")
 @Getter
 @Setter
-@NoArgsConstructor 
+@NoArgsConstructor                    
+@Entity
+@Table(name = "admins")
 public class Admin {
 
     @Id
@@ -25,9 +25,10 @@ public class Admin {
     @Enumerated(EnumType.STRING)
     private Role role = Role.ADMIN;
 
+    /** Domain-level ctor (no id) */
     public Admin(String username, String password, Role role) {
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.role     = role;
     }
 }
