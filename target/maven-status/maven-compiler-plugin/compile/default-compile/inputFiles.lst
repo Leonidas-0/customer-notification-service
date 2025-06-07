@@ -1,0 +1,11 @@
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\config\DatabaseInitializer.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\config\SecurityConfig.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\security\UserDetailsServiceImpl.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\repository\UserRepository.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\entity\Role.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\entity\User.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\security\JwtAuthenticationFilter.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\security\JwtUtils.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\security\UserDetails.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\security\UserDetailsImpl.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\CustomerNotificationApplication.java
