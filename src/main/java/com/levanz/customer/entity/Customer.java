@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity @Getter @Setter
+@Entity
+@Getter @Setter           
 public class Customer {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +25,7 @@ public class Customer {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    /* relations */
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
@@ -32,4 +34,12 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NotificationStatus> notifications = new ArrayList<>();
+
+
+    public String getEmail() {         
+        return primaryEmail;
+    }
+    public void setEmail(String email) {
+        this.primaryEmail = email;
+    }
 }
