@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-// 1️⃣ Declare “bearerAuth” as a JWT HTTP scheme
 @SecurityScheme(
   name = "bearerAuth",
   type = SecuritySchemeType.HTTP,

@@ -4,16 +4,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.io.Encoders;
 
-/**
- * Generates a single-use HS512 signing key and prints it to STDOUT.
- *
- * Usage (from project root):
- *   mvn -q exec:java -Dexec.mainClass="com.levanz.customer.util.KeyGenerator"
- *
- * Copy the printed value into application.yml:
- *   security:
- *     jwt-secret: <PASTE_HERE>
- */
+
 public class KeyGenerator {
 
     public static void main(String[] args) {

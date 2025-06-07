@@ -17,14 +17,11 @@ import java.util.stream.Collectors;
 @Component
 public class JwtUtils {
 
-    /** Base-64 string, injected from application.yml/.properties */
     @Value("${app.jwtSecret}")
     private String base64Secret;
 
-    /** Decoded once at startup; satisfies HS512 ≥ 64-byte rule */
     private Key key;
 
-    /** 24 h token TTL */
     private static final long TTL_MS = 24 * 60 * 60 * 1000L;
 
     @PostConstruct
