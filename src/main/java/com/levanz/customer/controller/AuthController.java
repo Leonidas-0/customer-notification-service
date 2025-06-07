@@ -1,6 +1,7 @@
 package com.levanz.customer.controller;
 
 import com.levanz.customer.security.JwtUtils;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,19 +20,21 @@ public class AuthController {
     private final AuthenticationManager authManager;
     private final JwtUtils jwt;
 
+    @Operation(
+      summary = "Admin login (public)",
+      security = {}
+    )
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest body) {
-
         Authentication authentication = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(body.username(), body.password()));
-
-        String token = jwt.generateToken(authentication.getName());
-
+            new UsernamePasswordAuthenticationToken(body.username(), body.password())
+        );
+        String token = jwt.generateToken(authentication);
         return ResponseEntity.ok(Map.of("token", token));
     }
 
     public record LoginRequest(
-            @NotBlank String username,
-            @NotBlank String password
+        @NotBlank String username,
+        @NotBlank String password
     ) {}
 }
