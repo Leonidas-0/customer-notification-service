@@ -1,84 +1,73 @@
 package com.levanz.customer.service;
 
-import com.levanz.customer.dto.CustomerDto;
+import com.levanz.customer.dto.CustomerRequestDto;
+import com.levanz.customer.dto.CustomerResponseDto;
 import com.levanz.customer.entity.Customer;
+import com.levanz.customer.mapper.CustomerMapper;
 import com.levanz.customer.repository.CustomerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-
 @Service
 @Transactional
-@RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository repo;
+    private final CustomerMapper mapper;
 
-    /* ---------- CRUD ---------- */
-
-    @Override
-    public CustomerDto create(CustomerDto dto) {
-        Customer saved = repo.save(toEntity(dto));
-        return toDto(saved);
+    public CustomerServiceImpl(
+        CustomerRepository repo,
+        CustomerMapper mapper
+    ) {
+        this.repo = repo;
+        this.mapper = mapper;
     }
 
     @Override
-    public CustomerDto one(Long id) {
-        return toDto(findOrThrow(id));
+    public CustomerResponseDto create(CustomerRequestDto dto) {
+        Customer entity = mapper.toEntity(dto);
+        Customer saved = repo.save(entity);
+        return mapper.toDto(saved);
     }
 
     @Override
-    public CustomerDto update(Long id, CustomerDto dto) {
-        Customer existing = findOrThrow(id);
-        copy(dto, existing);
-        return toDto(repo.save(existing));
+    public CustomerResponseDto update(Long id, CustomerRequestDto dto) {
+        Customer existing = repo.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Customer not found: " + id
+            ));
+        mapper.updateEntity(dto, existing);
+        Customer updated = repo.save(existing);
+        return mapper.toDto(updated);
     }
 
     @Override
     public void delete(Long id) {
-        repo.delete(findOrThrow(id));
+        if (!repo.existsById(id)) {
+            throw new ResponseStatusException(
+              HttpStatus.NOT_FOUND, "Customer not found: " + id
+            );
+        }
+        repo.deleteById(id);
     }
 
     @Override
-    public Page<CustomerDto> search(String q, Pageable p) {
-        // simple example – adjust to your needs
-        return repo.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(q, q, p)
-                   .map(this::toDto);
+    public CustomerResponseDto one(Long id) {
+        Customer c = repo.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Customer not found: " + id
+            ));
+        return mapper.toDto(c);
     }
 
-    /* ---------- helpers ---------- */
-
-    private Customer findOrThrow(Long id) {
-        return repo.findById(id)
-                   .orElseThrow(() -> new ResponseStatusException(
-                           NOT_FOUND, "Customer not found: " + id));
-    }
-
-    /* Entity ↔ DTO conversions */
-
-    private Customer toEntity(CustomerDto dto) {
-        Customer c = new Customer();
-        copy(dto, c);
-        return c;
-    }
-
-    private CustomerDto toDto(Customer c) {
-        CustomerDto dto = new CustomerDto();
-        dto.setId(c.getId());
-        dto.setFirstName(c.getFirstName());
-        dto.setLastName(c.getLastName());
-        dto.setEmail(c.getEmail());
-        return dto;
-    }
-
-    private void copy(CustomerDto src, Customer target) {
-        target.setFirstName(src.getFirstName());
-        target.setLastName(src.getLastName());
-        target.setEmail(src.getEmail());
+    @Override
+    public Page<CustomerResponseDto> search(String q, Pageable pageable) {
+        return repo
+            .findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(q, q, pageable)
+            .map(mapper::toDto);
     }
 }

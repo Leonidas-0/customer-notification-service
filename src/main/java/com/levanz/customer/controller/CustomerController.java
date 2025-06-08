@@ -1,53 +1,61 @@
 package com.levanz.customer.controller;
 
-import com.levanz.customer.dto.CustomerDto;
-import com.levanz.customer.service.CustomerServiceImpl;
+import com.levanz.customer.dto.CustomerRequestDto;
+import com.levanz.customer.dto.CustomerResponseDto;
+import com.levanz.customer.service.CustomerService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/customers")
-@RequiredArgsConstructor
 @SecurityRequirement(name = "bearerAuth")
 public class CustomerController {
 
-    private final CustomerServiceImpl service;
+    private final CustomerService service;
 
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public CustomerDto create(@Valid @RequestBody CustomerDto dto) {
-        return service.create(dto);
-    }
-
-
-    @GetMapping
-    public Page<CustomerDto> list(Pageable pageable,
-                                  @RequestParam(defaultValue = "") String q) {
-        return service.search(q, pageable);
+    public CustomerController(CustomerService service) {
+        this.service = service;
     }
 
     @GetMapping("/{id}")
-    public CustomerDto one(@PathVariable Long id) {
-        return service.one(id);
+    public ResponseEntity<CustomerResponseDto> getOne(@PathVariable Long id) {
+        CustomerResponseDto resp = service.one(id);
+        return ResponseEntity.ok(resp);
     }
 
+    @GetMapping
+    public ResponseEntity<Page<CustomerResponseDto>> search(
+        @RequestParam(value = "q", required = false, defaultValue = "") String q,
+        Pageable pageable
+    ) {
+        Page<CustomerResponseDto> page = service.search(q, pageable);
+        return ResponseEntity.ok(page);
+    }
+
+    @PostMapping
+    public ResponseEntity<CustomerResponseDto> create(
+        @Valid @RequestBody CustomerRequestDto dto
+    ) {
+        CustomerResponseDto created = service.create(dto);
+        return ResponseEntity.status(201).body(created);
+    }
 
     @PutMapping("/{id}")
-    public CustomerDto update(@PathVariable Long id,
-                              @Valid @RequestBody CustomerDto dto) {
-        return service.update(id, dto);
+    public ResponseEntity<CustomerResponseDto> update(
+        @PathVariable Long id,
+        @Valid @RequestBody CustomerRequestDto dto
+    ) {
+        CustomerResponseDto updated = service.update(id, dto);
+        return ResponseEntity.ok(updated);
     }
 
-
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

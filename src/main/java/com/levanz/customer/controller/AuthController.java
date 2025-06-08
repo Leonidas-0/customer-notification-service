@@ -1,7 +1,9 @@
 package com.levanz.customer.controller;
 
+import com.levanz.customer.dto.AuthResponseDto;
 import com.levanz.customer.security.JwtUtils;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,27 +12,26 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
     private final AuthenticationManager authManager;
-    private final JwtUtils jwt;
+    private final JwtUtils jwtUtils;
 
-    @Operation(
-      summary = "Admin login (public)",
-      security = {}
-    )
+    @Operation(summary = "Authenticate and receive JWT")
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest body) {
-        Authentication authentication = authManager.authenticate(
-            new UsernamePasswordAuthenticationToken(body.username(), body.password())
+    public ResponseEntity<AuthResponseDto> login(
+        @Valid @RequestBody LoginRequest body
+    ) {
+        Authentication auth = authManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                body.username(), body.password()
+            )
         );
-        String token = jwt.generateToken(authentication);
-        return ResponseEntity.ok(Map.of("token", token));
+        String token = jwtUtils.generateToken(auth);
+        return ResponseEntity.ok(new AuthResponseDto(token));
     }
 
     public record LoginRequest(

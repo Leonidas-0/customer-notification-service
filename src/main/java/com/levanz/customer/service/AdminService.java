@@ -1,12 +1,13 @@
 package com.levanz.customer.service;
 
-import com.levanz.customer.entity.Admin;
+import com.levanz.customer.dto.AdminDto;
+
 import java.util.List;
 
 public interface AdminService {
-    Admin create(Admin admin);
-    Admin update(Long id, Admin admin);
+    AdminDto create(AdminDto dto);
+    AdminDto update(Long id, AdminDto dto);
     void delete(Long id);
-    Admin getById(Long id);
-    List<Admin> getAll();
+    AdminDto getById(Long id);
+    List<AdminDto> getAll();
 }

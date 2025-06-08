@@ -25,7 +25,6 @@ public class Customer {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    /* relations */
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 

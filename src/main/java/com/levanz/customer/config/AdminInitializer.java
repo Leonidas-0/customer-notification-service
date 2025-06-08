@@ -25,7 +25,7 @@ public class AdminInitializer {
             adminRepository.findByUsername(defaultUsername)
                 .ifPresent(existing -> {
                     adminRepository.delete(existing);
-                    System.out.println("🧹 Removed existing admin user.");
+                    System.out.println("Removed existing admin user.");
                 });
 
             Admin newAdmin = new Admin();
@@ -34,7 +34,7 @@ public class AdminInitializer {
             newAdmin.setRole(Role.ADMIN);  
 
             adminRepository.save(newAdmin);
-            System.out.println("✅ Fresh admin created: " 
+            System.out.println("admin created" 
                 + defaultUsername + "/" + defaultPassword);
         };
     }

@@ -1,18 +1,14 @@
 package com.levanz.customer.service;
 
-import com.levanz.customer.dto.CustomerDto;
+import com.levanz.customer.dto.CustomerRequestDto;
+import com.levanz.customer.dto.CustomerResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface CustomerService {
-
-    CustomerDto create(CustomerDto dto);
-
-    CustomerDto update(Long id, CustomerDto dto);
-
+    CustomerResponseDto create(CustomerRequestDto dto);
+    CustomerResponseDto update(Long id, CustomerRequestDto dto);
     void delete(Long id);
-
-    CustomerDto one(Long id);
-
-    Page<CustomerDto> search(String q, Pageable pageable);
+    CustomerResponseDto one(Long id);
+    Page<CustomerResponseDto> search(String q, Pageable pageable);
 }

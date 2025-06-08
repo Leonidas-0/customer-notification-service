@@ -1,5 +1,6 @@
 package com.levanz.customer;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Encoders;
@@ -8,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.security.Key;
@@ -29,10 +30,6 @@ class CustomerNotificationApplicationTests {
     @Autowired
     private ObjectMapper objectMapper;
 
-    /**
-     * Dynamically generate a 512-bit key for HS512 and register it
-     * as the 'app.jwtSecret' property before the context loads.
-     */
     @DynamicPropertySource
     static void registerJwtSecret(DynamicPropertyRegistry registry) {
         Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
@@ -57,7 +54,11 @@ class CustomerNotificationApplicationTests {
             .getResponse()
             .getContentAsString();
 
-        Map<String,String> map = objectMapper.readValue(resp, Map.class);
+        // specify generic type explicitly to avoid unchecked conversion
+        Map<String,String> map = objectMapper.readValue(
+            resp,
+            new TypeReference<Map<String,String>>() {}
+        );
         return map.get("token");
     }
 
@@ -84,7 +85,11 @@ class CustomerNotificationApplicationTests {
             .getResponse()
             .getContentAsString();
 
-        Map<String,Object> created = objectMapper.readValue(createResp, Map.class);
+        // specify generic type explicitly to avoid unchecked conversion
+        Map<String,Object> created = objectMapper.readValue(
+            createResp,
+            new TypeReference<Map<String,Object>>() {}
+        );
         Integer id = (Integer) created.get("id");
 
         // read one

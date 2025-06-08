@@ -42,7 +42,6 @@ public class JwtUtils {
                 .compact();
     }
 
-    /* ── validation / extraction ─────────────────────────────────── */
     public boolean isTokenValid(String token, String username) {
         return username.equals(extractUsername(token)) && !isExpired(token);
     }
@@ -52,7 +51,15 @@ public class JwtUtils {
     }
 
     public List<String> extractAuthorities(String token) {
-        return extractAllClaims(token).get("authorities", List.class);
+        Claims claims = extractAllClaims(token);
+        Object raw = claims.get("authorities");
+        if (raw instanceof List<?>) {
+            return ((List<?>) raw).stream()
+                                  .filter(Objects::nonNull)
+                                  .map(Object::toString)
+                                  .collect(Collectors.toList());
+        }
+        return Collections.emptyList();
     }
 
     public Date extractExpiration(String token) {
@@ -63,7 +70,6 @@ public class JwtUtils {
         return fn.apply(extractAllClaims(token));
     }
 
-    /* ── helpers ─────────────────────────────────────────────────── */
     private boolean isExpired(String token) {
         return extractExpiration(token).before(new Date());
     }

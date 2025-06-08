@@ -1,8 +1,6 @@
 package com.levanz.customer.controller;
 
 import com.levanz.customer.dto.AdminDto;
-import com.levanz.customer.entity.Admin;
-import com.levanz.customer.entity.Role;
 import com.levanz.customer.service.AdminService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -22,31 +20,28 @@ public class AdminController {
         this.service = service;
     }
 
-    @PostMapping
-    public ResponseEntity<Admin> create(@Valid @RequestBody AdminDto dto) {
-        Admin toCreate = new Admin(dto.getUsername(),
-                                   dto.getPassword(),
-                                   Role.ADMIN);
-        return ResponseEntity.ok(service.create(toCreate));
-    }
-
     @GetMapping
-    public ResponseEntity<List<Admin>> list() {
+    public ResponseEntity<List<AdminDto>> listAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Admin> getOne(@PathVariable Long id) {
+    public ResponseEntity<AdminDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
+    @PostMapping
+    public ResponseEntity<AdminDto> create(@Valid @RequestBody AdminDto dto) {
+        AdminDto created = service.create(dto);
+        return ResponseEntity.status(201).body(created);
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Admin> update(@PathVariable Long id,
-                                        @Valid @RequestBody AdminDto dto) {
-        Admin toUpdate = new Admin(dto.getUsername(),
-                                   dto.getPassword(),
-                                   Role.ADMIN);
-        return ResponseEntity.ok(service.update(id, toUpdate));
+    public ResponseEntity<AdminDto> update(
+        @PathVariable Long id,
+        @Valid @RequestBody AdminDto dto
+    ) {
+        return ResponseEntity.ok(service.update(id, dto));
     }
 
     @DeleteMapping("/{id}")
