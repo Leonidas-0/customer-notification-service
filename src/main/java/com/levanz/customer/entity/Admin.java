@@ -26,10 +26,4 @@ public class Admin {
 
     @Enumerated(EnumType.STRING)
     private Role role = Role.ADMIN;
-
-    public Admin(String username, String password, Role role) {
-        this.username = username;
-        this.password = password;
-        this.role     = role;
-    }
 }

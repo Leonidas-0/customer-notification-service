@@ -1,28 +1,29 @@
 package com.levanz.customer.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.time.Instant;
-
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @Entity
 @Table(name = "notifications")
+@Getter
+@Setter
 public class Notification {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @Enumerated(EnumType.STRING)
-    private Channel channel;
+    @Column(nullable = false)
+    private NotificationStatus status;
 
-    private String message;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Enumerated(EnumType.STRING)
-    private DeliveryState state = DeliveryState.PENDING;
-
-    private Instant createdAt = Instant.now();
+    private LocalDateTime updatedAt;
 }

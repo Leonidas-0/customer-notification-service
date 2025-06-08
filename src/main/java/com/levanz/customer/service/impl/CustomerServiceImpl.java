@@ -1,10 +1,12 @@
-package com.levanz.customer.service;
+package com.levanz.customer.service.impl;
 
 import com.levanz.customer.dto.CustomerRequestDto;
 import com.levanz.customer.dto.CustomerResponseDto;
 import com.levanz.customer.entity.Customer;
 import com.levanz.customer.mapper.CustomerMapper;
 import com.levanz.customer.repository.CustomerRepository;
+import com.levanz.customer.service.CustomerService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

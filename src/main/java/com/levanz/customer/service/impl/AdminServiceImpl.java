@@ -1,10 +1,12 @@
-package com.levanz.customer.service;
+package com.levanz.customer.service.impl;
 
 import com.levanz.customer.dto.AdminDto;
 import com.levanz.customer.entity.Admin;
 import com.levanz.customer.entity.Role;
 import com.levanz.customer.mapper.AdminMapper;
 import com.levanz.customer.repository.AdminRepository;
+import com.levanz.customer.service.AdminService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
