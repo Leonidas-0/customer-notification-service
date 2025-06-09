@@ -1,4 +1,4 @@
-package com.levanz.customer;
+package com.levanz.customer.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class CustomerNotificationApplicationTests {
+class CustomerCrudIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;

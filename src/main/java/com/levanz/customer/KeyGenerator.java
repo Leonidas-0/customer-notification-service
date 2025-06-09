@@ -14,5 +14,5 @@ public class KeyGenerator {
         System.out.println("\nYour new HS512 key (Base-64):\n\n" + base64 + "\n");
     }
 
-    private KeyGenerator() { /* no-instantiation */ }
+    private KeyGenerator() {  }
 }

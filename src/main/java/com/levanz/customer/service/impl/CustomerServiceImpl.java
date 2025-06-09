@@ -2,10 +2,16 @@ package com.levanz.customer.service.impl;
 
 import com.levanz.customer.dto.CustomerRequestDto;
 import com.levanz.customer.dto.CustomerResponseDto;
+import com.levanz.customer.dto.CustomerSearchCriteriaDto;
+import com.levanz.customer.dto.CustomerUpdateDto;
 import com.levanz.customer.entity.Customer;
 import com.levanz.customer.mapper.CustomerMapper;
 import com.levanz.customer.repository.CustomerRepository;
 import com.levanz.customer.service.CustomerService;
+import com.levanz.customer.specification.CustomerSpecification;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -71,5 +77,27 @@ public class CustomerServiceImpl implements CustomerService {
         return repo
             .findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(q, q, pageable)
             .map(mapper::toDto);
+    }
+    @Override
+    public Page<CustomerResponseDto> searchAdvanced(CustomerSearchCriteriaDto criteria, Pageable pageable) {
+        return repo.findAll(
+            CustomerSpecification.byCriteria(
+                criteria.getFirstName(),
+                criteria.getLastName(),
+                criteria.getEmail(),
+                criteria.getOptedIn()
+            ),
+            pageable
+        ).map(mapper::toDto);
+    }
+
+    @Override
+    public List<CustomerResponseDto> batchUpdate(List<CustomerUpdateDto> updates) {
+        return updates.stream()
+            .map(u -> update(
+                u.getId(),
+                new CustomerRequestDto(u.getFirstName(), u.getLastName(), u.getEmail())
+            ))
+            .collect(Collectors.toList());
     }
 }
