@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<body>
+  <h2 th:text="${path.substring(0,1).toUpperCase()} + ${path.substring(1)}">Items</h2>
+  <button th:onclick="|location.href='@{/${path}/new}'|">New</button>
+  <table>
+    <thead>
+      <tr>
+        <th th:each="k : ${items[0].keySet()}" th:text="${k}">Header</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="it : ${items}">
+        <td th:each="v : ${it.values()}" th:text="${v}">Value</td>
+        <td>
+          <a th:href="@{/${path}/edit/{id}(id=${it['id']})}">Edit</a> |
+          <a th:href="@{/${path}/delete/{id}(id=${it['id']})}">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

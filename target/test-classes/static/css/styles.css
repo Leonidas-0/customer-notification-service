@@ -1,0 +1,5 @@
+body { font-family: sans-serif; margin: 1rem; }
+nav a { margin-right: 1rem; text-decoration: none; }
+table { width:100%; border-collapse:collapse; margin-top:1rem; }
+th, td { border:1px solid #ddd; padding:0.5rem; }
+button { margin:1rem 0; padding:0.5rem 1rem; }

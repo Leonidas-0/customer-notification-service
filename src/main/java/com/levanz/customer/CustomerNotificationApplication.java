@@ -18,7 +18,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
   in = SecuritySchemeIn.HEADER
 )
 
-// 2️⃣ Apply it globally by default
 @OpenAPIDefinition(
   security = @SecurityRequirement(name = "bearerAuth")
 )

@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-09T08:35:32+0400",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-06-10T01:52:45+0400",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class CustomerMapperImpl implements CustomerMapper {
@@ -30,9 +30,9 @@ public class CustomerMapperImpl implements CustomerMapper {
 
         Customer customer = new Customer();
 
-        customer.setEmail( dto.getEmail() );
         customer.setFirstName( dto.getFirstName() );
         customer.setLastName( dto.getLastName() );
+        customer.setEmail( dto.getEmail() );
 
         return customer;
     }
@@ -45,14 +45,14 @@ public class CustomerMapperImpl implements CustomerMapper {
 
         CustomerResponseDto customerResponseDto = new CustomerResponseDto();
 
-        customerResponseDto.setAddresses( addressListToAddressResponseDtoList( entity.getAddresses() ) );
-        customerResponseDto.setCreatedAt( entity.getCreatedAt() );
-        customerResponseDto.setEmail( entity.getEmail() );
-        customerResponseDto.setFirstName( entity.getFirstName() );
         customerResponseDto.setId( entity.getId() );
+        customerResponseDto.setFirstName( entity.getFirstName() );
         customerResponseDto.setLastName( entity.getLastName() );
-        customerResponseDto.setNotifications( notificationListToNotificationResponseDtoList( entity.getNotifications() ) );
+        customerResponseDto.setEmail( entity.getEmail() );
+        customerResponseDto.setCreatedAt( entity.getCreatedAt() );
+        customerResponseDto.setAddresses( addressListToAddressResponseDtoList( entity.getAddresses() ) );
         customerResponseDto.setPreferences( preferenceListToPreferenceResponseDtoList( entity.getPreferences() ) );
+        customerResponseDto.setNotifications( notificationListToNotificationResponseDtoList( entity.getNotifications() ) );
 
         return customerResponseDto;
     }
@@ -63,9 +63,9 @@ public class CustomerMapperImpl implements CustomerMapper {
             return;
         }
 
-        entity.setEmail( dto.getEmail() );
         entity.setFirstName( dto.getFirstName() );
         entity.setLastName( dto.getLastName() );
+        entity.setEmail( dto.getEmail() );
     }
 
     protected AddressResponseDto addressToAddressResponseDto(Address address) {
@@ -75,13 +75,13 @@ public class CustomerMapperImpl implements CustomerMapper {
 
         AddressResponseDto addressResponseDto = new AddressResponseDto();
 
-        addressResponseDto.setCity( address.getCity() );
-        addressResponseDto.setCountry( address.getCountry() );
-        addressResponseDto.setCreatedAt( address.getCreatedAt() );
         addressResponseDto.setId( address.getId() );
-        addressResponseDto.setStreet( address.getStreet() );
         addressResponseDto.setType( address.getType() );
+        addressResponseDto.setCountry( address.getCountry() );
+        addressResponseDto.setCity( address.getCity() );
+        addressResponseDto.setStreet( address.getStreet() );
         addressResponseDto.setZip( address.getZip() );
+        addressResponseDto.setCreatedAt( address.getCreatedAt() );
 
         return addressResponseDto;
     }
@@ -99,34 +99,6 @@ public class CustomerMapperImpl implements CustomerMapper {
         return list1;
     }
 
-    protected NotificationResponseDto notificationToNotificationResponseDto(Notification notification) {
-        if ( notification == null ) {
-            return null;
-        }
-
-        NotificationResponseDto notificationResponseDto = new NotificationResponseDto();
-
-        notificationResponseDto.setCreatedAt( notification.getCreatedAt() );
-        notificationResponseDto.setId( notification.getId() );
-        notificationResponseDto.setStatus( notification.getStatus() );
-        notificationResponseDto.setUpdatedAt( notification.getUpdatedAt() );
-
-        return notificationResponseDto;
-    }
-
-    protected List<NotificationResponseDto> notificationListToNotificationResponseDtoList(List<Notification> list) {
-        if ( list == null ) {
-            return null;
-        }
-
-        List<NotificationResponseDto> list1 = new ArrayList<NotificationResponseDto>( list.size() );
-        for ( Notification notification : list ) {
-            list1.add( notificationToNotificationResponseDto( notification ) );
-        }
-
-        return list1;
-    }
-
     protected PreferenceResponseDto preferenceToPreferenceResponseDto(Preference preference) {
         if ( preference == null ) {
             return null;
@@ -134,8 +106,8 @@ public class CustomerMapperImpl implements CustomerMapper {
 
         PreferenceResponseDto preferenceResponseDto = new PreferenceResponseDto();
 
-        preferenceResponseDto.setChannel( preference.getChannel() );
         preferenceResponseDto.setId( preference.getId() );
+        preferenceResponseDto.setChannel( preference.getChannel() );
         preferenceResponseDto.setOptedIn( preference.isOptedIn() );
         preferenceResponseDto.setUpdatedAt( preference.getUpdatedAt() );
 
@@ -150,6 +122,34 @@ public class CustomerMapperImpl implements CustomerMapper {
         List<PreferenceResponseDto> list1 = new ArrayList<PreferenceResponseDto>( list.size() );
         for ( Preference preference : list ) {
             list1.add( preferenceToPreferenceResponseDto( preference ) );
+        }
+
+        return list1;
+    }
+
+    protected NotificationResponseDto notificationToNotificationResponseDto(Notification notification) {
+        if ( notification == null ) {
+            return null;
+        }
+
+        NotificationResponseDto notificationResponseDto = new NotificationResponseDto();
+
+        notificationResponseDto.setId( notification.getId() );
+        notificationResponseDto.setStatus( notification.getStatus() );
+        notificationResponseDto.setCreatedAt( notification.getCreatedAt() );
+        notificationResponseDto.setUpdatedAt( notification.getUpdatedAt() );
+
+        return notificationResponseDto;
+    }
+
+    protected List<NotificationResponseDto> notificationListToNotificationResponseDtoList(List<Notification> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<NotificationResponseDto> list1 = new ArrayList<NotificationResponseDto>( list.size() );
+        for ( Notification notification : list ) {
+            list1.add( notificationToNotificationResponseDto( notification ) );
         }
 
         return list1;

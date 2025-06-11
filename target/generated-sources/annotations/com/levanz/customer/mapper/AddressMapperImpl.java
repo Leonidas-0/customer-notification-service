@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-09T08:35:32+0400",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-06-10T01:52:45+0400",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class AddressMapperImpl implements AddressMapper {
@@ -22,10 +22,10 @@ public class AddressMapperImpl implements AddressMapper {
 
         Address address = new Address();
 
-        address.setCity( dto.getCity() );
-        address.setCountry( dto.getCountry() );
-        address.setStreet( dto.getStreet() );
         address.setType( dto.getType() );
+        address.setCountry( dto.getCountry() );
+        address.setCity( dto.getCity() );
+        address.setStreet( dto.getStreet() );
         address.setZip( dto.getZip() );
 
         return address;
@@ -39,13 +39,13 @@ public class AddressMapperImpl implements AddressMapper {
 
         AddressResponseDto addressResponseDto = new AddressResponseDto();
 
-        addressResponseDto.setCity( entity.getCity() );
-        addressResponseDto.setCountry( entity.getCountry() );
-        addressResponseDto.setCreatedAt( entity.getCreatedAt() );
         addressResponseDto.setId( entity.getId() );
-        addressResponseDto.setStreet( entity.getStreet() );
         addressResponseDto.setType( entity.getType() );
+        addressResponseDto.setCountry( entity.getCountry() );
+        addressResponseDto.setCity( entity.getCity() );
+        addressResponseDto.setStreet( entity.getStreet() );
         addressResponseDto.setZip( entity.getZip() );
+        addressResponseDto.setCreatedAt( entity.getCreatedAt() );
 
         return addressResponseDto;
     }
@@ -56,10 +56,10 @@ public class AddressMapperImpl implements AddressMapper {
             return;
         }
 
-        entity.setCity( dto.getCity() );
-        entity.setCountry( dto.getCountry() );
-        entity.setStreet( dto.getStreet() );
         entity.setType( dto.getType() );
+        entity.setCountry( dto.getCountry() );
+        entity.setCity( dto.getCity() );
+        entity.setStreet( dto.getStreet() );
         entity.setZip( dto.getZip() );
     }
 }

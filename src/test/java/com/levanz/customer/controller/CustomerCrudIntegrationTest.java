@@ -85,26 +85,22 @@ class CustomerCrudIntegrationTest {
             .getResponse()
             .getContentAsString();
 
-        // specify generic type explicitly to avoid unchecked conversion
         Map<String,Object> created = objectMapper.readValue(
             createResp,
             new TypeReference<Map<String,Object>>() {}
         );
         Integer id = (Integer) created.get("id");
 
-        // read one
         mockMvc.perform(get("/api/customers/{id}", id)
                 .header("Authorization", "Bearer " + jwt))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.email").value("john.doe@example.com"));
 
-        // list
         mockMvc.perform(get("/api/customers")
                 .header("Authorization", "Bearer " + jwt))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.content").isArray());
 
-        // update
         Map<String,Object> updateReq = Map.of(
           "firstName", "Jane",
           "lastName",  "Doe",
@@ -120,12 +116,10 @@ class CustomerCrudIntegrationTest {
             .andExpect(jsonPath("$.firstName").value("Jane"))
             .andExpect(jsonPath("$.email").value("jane.doe@example.com"));
 
-        // delete
         mockMvc.perform(delete("/api/customers/{id}", id)
                 .header("Authorization", "Bearer " + jwt))
             .andExpect(status().isNoContent());
 
-        // confirm gone
         mockMvc.perform(get("/api/customers/{id}", id)
                 .header("Authorization", "Bearer " + jwt))
             .andExpect(status().isNotFound());

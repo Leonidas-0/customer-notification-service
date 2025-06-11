@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<body>
+  <h2>Preference Statistics</h2>
+  <table>
+    <thead><tr><th>Channel</th><th>Count</th></tr></thead>
+    <tbody>
+      <tr th:each="r : ${prefStats}">
+        <td th:text="${r['channel']}">EMAIL</td>
+        <td th:text="${r['count']}">0</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Notification Statistics</h2>
+  <table>
+    <thead><tr><th>Status</th><th>Count</th></tr></thead>
+    <tbody>
+      <tr th:each="r : ${notifStats}">
+        <td th:text="${r['status']}">PENDING</td>
+        <td th:text="${r['count']}">0</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

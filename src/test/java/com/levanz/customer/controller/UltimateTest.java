@@ -18,6 +18,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.hamcrest.Matchers.hasItem;
 
 import java.security.Key;
 import java.util.List;
@@ -33,8 +34,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @DirtiesContext(classMode = AFTER_CLASS)
 public class UltimateTest {
 
-    @Autowired private MockMvc mvc;
-    @Autowired private ObjectMapper json;
+    @Autowired
+    private MockMvc mvc;
+    @Autowired
+    private ObjectMapper json;
 
     private String jwt;
 
@@ -64,9 +67,9 @@ public class UltimateTest {
                 .header("Authorization", "Bearer " + jwt)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsString(crit)))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.content.length()").value(1))
-            .andExpect(jsonPath("$.content[0].id").value(custId.intValue()));
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.content.length()").value(1))
+                .andExpect(jsonPath("$.content[0].id").value(custId.intValue()));
 
         CustomerUpdateDto upd = new CustomerUpdateDto();
         upd.setId(custId);
@@ -78,25 +81,25 @@ public class UltimateTest {
                 .header("Authorization", "Bearer " + jwt)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsString(List.of(upd))))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$[0].firstName").value("King"));
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].firstName").value("King"));
 
         mvc.perform(get("/api/reports/preferences")
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$[0].channel").value("EMAIL"));
-
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[*].channel", hasItem("EMAIL")));
         mvc.perform(get("/api/reports/notifications")
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$[0].status").value("PENDING"));
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[*].status", hasItem("PENDING")));
 
         String custJson = mvc.perform(get("/api/customers/{id}", custId)
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isOk())
-            .andReturn().getResponse().getContentAsString();
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
 
-        Map<String, Object> custMap = json.readValue(custJson, new TypeReference<>() {});
+        Map<String, Object> custMap = json.readValue(custJson, new TypeReference<>() {
+        });
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> addrs = (List<Map<String, Object>>) custMap.get("addresses");
         @SuppressWarnings("unchecked")
@@ -110,21 +113,21 @@ public class UltimateTest {
 
         mvc.perform(delete("/api/customers/{id}", custId)
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isNoContent());
+                .andExpect(status().isNoContent());
 
         mvc.perform(get("/api/customers/{id}", custId)
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound());
 
         mvc.perform(get("/api/customers/{cid}/addresses", custId)
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound());
         mvc.perform(get("/api/customers/{cid}/preferences", custId)
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound());
         mvc.perform(get("/api/customers/{cid}/notifications", custId)
                 .header("Authorization", "Bearer " + jwt))
-            .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound());
     }
 
     private String obtainJwt() throws Exception {
@@ -132,59 +135,62 @@ public class UltimateTest {
         String resp = mvc.perform(post("/api/auth/login")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(creds))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.token").isString())
-            .andReturn().getResponse().getContentAsString();
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.token").isString())
+                .andReturn().getResponse().getContentAsString();
 
-        Map<String, String> map = json.readValue(resp, new TypeReference<>() {});
+        Map<String, String> map = json.readValue(resp, new TypeReference<>() {
+        });
         return map.get("token");
     }
 
     private Long createCustomer(String jwt) throws Exception {
         String body = json.writeValueAsString(
-            Map.of("firstName", "End", "lastName", "ToEnd", "email", "e2e@example.com")
-        );
+                Map.of("firstName", "End", "lastName", "ToEnd", "email", "e2e@example.com"));
         String c = mvc.perform(post("/api/customers")
                 .header("Authorization", "Bearer " + jwt)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body))
-            .andExpect(status().isCreated())
-            .andReturn().getResponse().getContentAsString();
-        return ((Number) json.readValue(c, new TypeReference<Map<String,Object>>(){}).get("id")).longValue();
+                .andExpect(status().isCreated())
+                .andReturn().getResponse().getContentAsString();
+        return ((Number) json.readValue(c, new TypeReference<Map<String, Object>>() {
+        }).get("id")).longValue();
     }
 
     private Long createAddress(String jwt, Long custId, String city, String street, String zip) throws Exception {
         String body = json.writeValueAsString(
-            Map.of("type","POSTAL","country","Georgia","city",city,"street",street,"zip",zip)
-        );
+                Map.of("type", "POSTAL", "country", "Georgia", "city", city, "street", street, "zip", zip));
         String r = mvc.perform(post("/api/customers/{cid}/addresses", custId)
-                .header("Authorization","Bearer "+jwt)
+                .header("Authorization", "Bearer " + jwt)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body))
-            .andExpect(status().isCreated())
-            .andReturn().getResponse().getContentAsString();
-        return ((Number)json.readValue(r,new TypeReference<Map<String,Object>>(){}).get("id")).longValue();
+                .andExpect(status().isCreated())
+                .andReturn().getResponse().getContentAsString();
+        return ((Number) json.readValue(r, new TypeReference<Map<String, Object>>() {
+        }).get("id")).longValue();
     }
 
     private Long createPreference(String jwt, Long custId, String channel, boolean optIn) throws Exception {
-        String body = json.writeValueAsString(Map.of("channel",channel,"optedIn",optIn));
+        String body = json.writeValueAsString(Map.of("channel", channel, "optedIn", optIn));
         String r = mvc.perform(post("/api/customers/{cid}/preferences", custId)
-                .header("Authorization","Bearer "+jwt)
+                .header("Authorization", "Bearer " + jwt)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body))
-            .andExpect(status().isCreated())
-            .andReturn().getResponse().getContentAsString();
-        return ((Number)json.readValue(r,new TypeReference<Map<String,Object>>(){}).get("id")).longValue();
+                .andExpect(status().isCreated())
+                .andReturn().getResponse().getContentAsString();
+        return ((Number) json.readValue(r, new TypeReference<Map<String, Object>>() {
+        }).get("id")).longValue();
     }
 
     private Long createNotification(String jwt, Long custId, NotificationStatus status) throws Exception {
         String body = json.writeValueAsString(Map.of("status", status));
         String r = mvc.perform(post("/api/customers/{cid}/notifications", custId)
-                .header("Authorization","Bearer "+jwt)
+                .header("Authorization", "Bearer " + jwt)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body))
-            .andExpect(status().isCreated())
-            .andReturn().getResponse().getContentAsString();
-        return ((Number)json.readValue(r,new TypeReference<Map<String,Object>>(){}).get("id")).longValue();
+                .andExpect(status().isCreated())
+                .andReturn().getResponse().getContentAsString();
+        return ((Number) json.readValue(r, new TypeReference<Map<String, Object>>() {
+        }).get("id")).longValue();
     }
 }

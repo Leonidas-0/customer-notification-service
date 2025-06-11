@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-09T08:35:32+0400",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-06-10T01:52:45+0400",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class PreferenceMapperImpl implements PreferenceMapper {
@@ -38,8 +38,8 @@ public class PreferenceMapperImpl implements PreferenceMapper {
 
         PreferenceResponseDto preferenceResponseDto = new PreferenceResponseDto();
 
-        preferenceResponseDto.setChannel( entity.getChannel() );
         preferenceResponseDto.setId( entity.getId() );
+        preferenceResponseDto.setChannel( entity.getChannel() );
         preferenceResponseDto.setOptedIn( entity.isOptedIn() );
         preferenceResponseDto.setUpdatedAt( entity.getUpdatedAt() );
 

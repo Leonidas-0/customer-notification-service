@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-09T08:35:32+0400",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.42.0.v20250514-1000, environment: Java 21.0.7 (Eclipse Adoptium)"
+    date = "2025-06-10T01:52:45+0400",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.4 (Eclipse Adoptium)"
 )
 @Component
 public class NotificationMapperImpl implements NotificationMapper {
@@ -35,9 +35,9 @@ public class NotificationMapperImpl implements NotificationMapper {
 
         NotificationResponseDto notificationResponseDto = new NotificationResponseDto();
 
-        notificationResponseDto.setCreatedAt( entity.getCreatedAt() );
         notificationResponseDto.setId( entity.getId() );
         notificationResponseDto.setStatus( entity.getStatus() );
+        notificationResponseDto.setCreatedAt( entity.getCreatedAt() );
         notificationResponseDto.setUpdatedAt( entity.getUpdatedAt() );
 
         return notificationResponseDto;

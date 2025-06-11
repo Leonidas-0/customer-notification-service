@@ -17,7 +17,6 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // your existing fields:
     private String firstName;
     private String lastName;
     private String email;
@@ -25,7 +24,6 @@ public class Customer {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    // ONE-TO-MANY to Address
     @OneToMany(
       mappedBy = "customer",
       cascade = CascadeType.ALL,
@@ -33,7 +31,6 @@ public class Customer {
     )
     private List<Address> addresses = new ArrayList<>();
 
-    // ONE-TO-MANY to Preference
     @OneToMany(
       mappedBy = "customer",
       cascade = CascadeType.ALL,
@@ -41,7 +38,6 @@ public class Customer {
     )
     private List<Preference> preferences = new ArrayList<>();
 
-    // ONE-TO-MANY to Notification
     @OneToMany(
       mappedBy = "customer",
       cascade = CascadeType.ALL,

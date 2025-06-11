@@ -24,23 +24,35 @@ public class SecurityConfig {
         this.jwtFilter = jwtFilter;
     }
 
-@Bean
-public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http
-      .csrf(csrf -> csrf.disable())
-      .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-      .authorizeHttpRequests(auth -> auth
-          .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
-          .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-          .anyRequest().authenticated()
-      )
-      .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+          .csrf(csrf -> csrf.disable())
+          .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+          .authorizeHttpRequests(auth -> auth
 
-    return http.build();
-}
+              .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+              .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+              .requestMatchers(
+                  "/", "/login",
+                  "/customers/**",
+                  "/addresses/**",
+                  "/preferences/**",
+                  "/notifications/**",
+                  "/reports",
+                  "/css/**", "/js/**", "/images/**"
+              ).permitAll()
+              .requestMatchers("/api/**").authenticated()
+          )
+          .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration cfg) throws Exception {
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration cfg
+    ) throws Exception {
         return cfg.getAuthenticationManager();
     }
 
