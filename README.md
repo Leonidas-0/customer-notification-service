@@ -29,7 +29,6 @@ The service successfully implements all the key functional requirements outlined
 
 ## Technology Stack
 
-The project leverages a modern and powerful technology stack, chosen for its robustness, performance, and wide adoption in the industry.
 
 | Category              | Technology                                       |
 | --------------------- | ------------------------------------------------ |
@@ -37,7 +36,7 @@ The project leverages a modern and powerful technology stack, chosen for its rob
 | **Data Persistence** | Spring Data JPA, Hibernate                       |
 | **Database** | H2 (for development/testing), MySQL (supported)  |
 | **Security** | Spring Security 6, JSON Web Tokens (JWT)         |
-| **API Documentation** | SpringDoc (OpenAPI 3 / Swagger UI)               |
+| **API Documentation** | SpringDoc (OpenAPI / Swagger UI)               |
 | **DTO Mapping** | MapStruct                                        |
 | **Frontend** | Thymeleaf, HTML5, CSS3, JavaScript, Bootstrap 5  |
 | **Build Tool** | Maven (with Maven Wrapper for portability)       |
