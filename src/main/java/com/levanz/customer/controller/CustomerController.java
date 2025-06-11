@@ -10,7 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ * REST controller for managing customers.
+ * Handles CRUD operations, searching, and batch updates for customers.
+ */
 @RestController
 @RequestMapping("/api/customers")
 @SecurityRequirement(name = "bearerAuth")
@@ -21,7 +24,12 @@ public class CustomerController {
     public CustomerController(CustomerService service) {
         this.service = service;
     }
-
+    /**
+     * Searches for customers based on a complex set of criteria.
+     * @param criteria DTO containing search parameters.
+     * @param pageable Pagination and sorting information.
+     * @return A paginated list of customers matching the criteria.
+     */
     @PostMapping("/search")
     public ResponseEntity<Page<CustomerResponseDto>> searchAdvanced(
         @Valid @RequestBody CustomerSearchCriteriaDto criteria,
@@ -29,7 +37,11 @@ public class CustomerController {
     ) {
         return ResponseEntity.ok(service.searchAdvanced(criteria, pageable));
     }
-
+    /**
+     * Performs a batch update on multiple customers.
+     * @param updates A list of customer update DTOs.
+     * @return A list of the updated customers.
+     */
     @PutMapping("/batch")
     public ResponseEntity<List<CustomerResponseDto>> batchUpdate(
         @Valid @RequestBody List<CustomerUpdateDto> updates

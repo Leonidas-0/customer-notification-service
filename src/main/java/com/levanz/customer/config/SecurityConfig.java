@@ -27,8 +27,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            // Disable CSRF as this is a stateless API
             .csrf(csrf -> csrf.disable())
+            // Define authorization rules for HTTP requests
             .authorizeHttpRequests(auth -> auth
+                // Publicly accessible endpoints
                 .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                 .requestMatchers(
                     "/",
@@ -43,21 +46,24 @@ public class SecurityConfig {
                 "/swagger-ui/**", 
                     "/v3/api-docs/**"
                 ).permitAll()
+                // All other requests must be authenticated
                 .anyRequest().authenticated()
             )
+            // Configured session management to be stateless, as I am using JWT
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            // Add the custom JWT filter before the standard username/password authentication filter
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
-
+    // Expose the AuthenticationManager as a Bean
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config
     ) throws Exception {
         return config.getAuthenticationManager();
     }
-
+    // Define the password encoder bean
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.levanz.customer.controller.UltimateTest" time="2.372" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\levan\OneDrive\Documents\customer-notification-service\target\test-classes;C:\Users\levan\OneDrive\Documents\customer-notification-service\target\classes;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.1.2\spring-boot-starter-web-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter\3.1.2\spring-boot-starter-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot\3.1.2\spring-boot-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.1.2\spring-boot-autoconfigure-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.1.2\spring-boot-starter-logging-3.1.2.jar;C:\Users\levan\.m2\repository\ch\qos\logback\logback-classic\1.4.8\logback-classic-1.4.8.jar;C:\Users\levan\.m2\repository\ch\qos\logback\logback-core\1.4.8\logback-core-1.4.8.jar;C:\Users\levan\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.20.0\log4j-to-slf4j-2.20.0.jar;C:\Users\levan\.m2\repository\org\apache\logging\log4j\log4j-api\2.20.0\log4j-api-2.20.0.jar;C:\Users\levan\.m2\repository\org\slf4j\jul-to-slf4j\2.0.7\jul-to-slf4j-2.0.7.jar;C:\Users\levan\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\levan\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.1.2\spring-boot-starter-json-3.1.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.2\jackson-datatype-jdk8-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.2\jackson-datatype-jsr310-2.15.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.1.2\spring-boot-starter-tomcat-3.1.2.jar;C:\Users\levan\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.11\tomcat-embed-core-10.1.11.jar;C:\Users\levan\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.11\tomcat-embed-el-10.1.11.jar;C:\Users\levan\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.11\tomcat-embed-websocket-10.1.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-web\6.0.11\spring-web-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-beans\6.0.11\spring-beans-6.0.11.jar;C:\Users\levan\.m2\repository\io\micrometer\micrometer-observation\1.11.2\micrometer-observation-1.11.2.jar;C:\Users\levan\.m2\repository\io\micrometer\micrometer-commons\1.11.2\micrometer-commons-1.11.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-webmvc\6.0.11\spring-webmvc-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-context\6.0.11\spring-context-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-expression\6.0.11\spring-expression-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.1.2\spring-boot-starter-data-jpa-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.1.2\spring-boot-starter-aop-3.1.2.jar;C:\Users\levan\.m2\repository\org\aspectj\aspectjweaver\1.9.19\aspectjweaver-1.9.19.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.1.2\spring-boot-starter-jdbc-3.1.2.jar;C:\Users\levan\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\levan\.m2\repository\org\springframework\spring-jdbc\6.0.11\spring-jdbc-6.0.11.jar;C:\Users\levan\.m2\repository\org\hibernate\orm\hibernate-core\6.2.6.Final\hibernate-core-6.2.6.Final.jar;C:\Users\levan\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\levan\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\levan\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\levan\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\levan\.m2\repository\io\smallrye\jandex\3.0.5\jandex-3.0.5.jar;C:\Users\levan\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\levan\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.3\jaxb-runtime-4.0.3.jar;C:\Users\levan\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.3\jaxb-core-4.0.3.jar;C:\Users\levan\.m2\repository\org\glassfish\jaxb\txw2\4.0.3\txw2-4.0.3.jar;C:\Users\levan\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\levan\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\levan\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\levan\.m2\repository\org\springframework\data\spring-data-jpa\3.1.2\spring-data-jpa-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\data\spring-data-commons\3.1.2\spring-data-commons-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-orm\6.0.11\spring-orm-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-tx\6.0.11\spring-tx-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-aspects\6.0.11\spring-aspects-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.1.2\spring-boot-starter-security-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-aop\6.0.11\spring-aop-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-config\6.1.2\spring-security-config-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-web\6.1.2\spring-security-web-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-mail\3.1.2\spring-boot-starter-mail-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-context-support\6.0.11\spring-context-support-6.0.11.jar;C:\Users\levan\.m2\repository\org\eclipse\angus\jakarta.mail\1.1.0\jakarta.mail-1.1.0.jar;C:\Users\levan\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\levan\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\3.1.2\spring-boot-starter-thymeleaf-3.1.2.jar;C:\Users\levan\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.1.RELEASE\thymeleaf-spring6-3.1.1.RELEASE.jar;C:\Users\levan\.m2\repository\nz\net\ultraq\thymeleaf\thymeleaf-layout-dialect\3.3.0\thymeleaf-layout-dialect-3.3.0.jar;C:\Users\levan\.m2\repository\org\apache\groovy\groovy\4.0.13\groovy-4.0.13.jar;C:\Users\levan\.m2\repository\nz\net\ultraq\groovy\groovy-extensions\2.1.0\groovy-extensions-2.1.0.jar;C:\Users\levan\.m2\repository\nz\net\ultraq\thymeleaf\thymeleaf-expression-processor\3.2.0\thymeleaf-expression-processor-3.2.0.jar;C:\Users\levan\.m2\repository\org\thymeleaf\thymeleaf\3.1.1.RELEASE\thymeleaf-3.1.1.RELEASE.jar;C:\Users\levan\.m2\repository\ognl\ognl\3.3.4\ognl-3.3.4.jar;C:\Users\levan\.m2\repository\org\javassist\javassist\3.29.0-GA\javassist-3.29.0-GA.jar;C:\Users\levan\.m2\repository\org\attoparser\attoparser\2.0.6.RELEASE\attoparser-2.0.6.RELEASE.jar;C:\Users\levan\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\levan\.m2\repository\org\slf4j\slf4j-api\2.0.7\slf4j-api-2.0.7.jar;C:\Users\levan\.m2\repository\org\mapstruct\mapstruct\1.5.5.Final\mapstruct-1.5.5.Final.jar;C:\Users\levan\.m2\repository\org\mapstruct\mapstruct-processor\1.5.5.Final\mapstruct-processor-1.5.5.Final.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.2\jackson-module-parameter-names-2.15.2.jar;C:\Users\levan\.m2\repository\com\h2database\h2\2.1.214\h2-2.1.214.jar;C:\Users\levan\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\levan\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\levan\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\levan\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\levan\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.1.0\springdoc-openapi-starter-webmvc-ui-2.1.0.jar;C:\Users\levan\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.1.0\springdoc-openapi-starter-webmvc-api-2.1.0.jar;C:\Users\levan\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.1.0\springdoc-openapi-starter-common-2.1.0.jar;C:\Users\levan\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.9\swagger-core-jakarta-2.2.9.jar;C:\Users\levan\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\levan\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.9\swagger-annotations-jakarta-2.2.9.jar;C:\Users\levan\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.9\swagger-models-jakarta-2.2.9.jar;C:\Users\levan\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.2\jackson-dataformat-yaml-2.15.2.jar;C:\Users\levan\.m2\repository\org\webjars\swagger-ui\4.18.2\swagger-ui-4.18.2.jar;C:\Users\levan\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.1.2\spring-boot-starter-test-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-test\3.1.2\spring-boot-test-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.1.2\spring-boot-test-autoconfigure-3.1.2.jar;C:\Users\levan\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\levan\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.0\jakarta.xml.bind-api-4.0.0.jar;C:\Users\levan\.m2\repository\net\minidev\json-smart\2.4.11\json-smart-2.4.11.jar;C:\Users\levan\.m2\repository\net\minidev\accessors-smart\2.4.11\accessors-smart-2.4.11.jar;C:\Users\levan\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\levan\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\levan\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.3\junit-jupiter-5.9.3.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\levan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\levan\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\levan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.3\junit-jupiter-params-5.9.3.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\levan\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;C:\Users\levan\.m2\repository\org\mockito\mockito-junit-jupiter\5.3.1\mockito-junit-jupiter-5.3.1.jar;C:\Users\levan\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\levan\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\levan\.m2\repository\org\springframework\spring-core\6.0.11\spring-core-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-jcl\6.0.11\spring-jcl-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-test\6.0.11\spring-test-6.0.11.jar;C:\Users\levan\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\levan\.m2\repository\org\mockito\mockito-core\5.5.0\mockito-core-5.5.0.jar;C:\Users\levan\.m2\repository\net\bytebuddy\byte-buddy\1.14.5\byte-buddy-1.14.5.jar;C:\Users\levan\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.5\byte-buddy-agent-1.14.5.jar;C:\Users\levan\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-test\6.1.2\spring-security-test-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-core\6.1.2\spring-security-core-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-crypto\6.1.2\spring-security-crypto-6.1.2.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="user.timezone" value="Asia/Tbilisi"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\levan\AppData\Local\Temp\surefire12069945888507809939\surefirebooter-20250612020914702_3.jar C:\Users\levan\AppData\Local\Temp\surefire12069945888507809939 2025-06-12T02-09-14_517-jvmRun1 surefire-20250612020914702_1tmp surefire_0-20250612020914702_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\levan\OneDrive\Documents\customer-notification-service\target\test-classes;C:\Users\levan\OneDrive\Documents\customer-notification-service\target\classes;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.1.2\spring-boot-starter-web-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter\3.1.2\spring-boot-starter-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot\3.1.2\spring-boot-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.1.2\spring-boot-autoconfigure-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.1.2\spring-boot-starter-logging-3.1.2.jar;C:\Users\levan\.m2\repository\ch\qos\logback\logback-classic\1.4.8\logback-classic-1.4.8.jar;C:\Users\levan\.m2\repository\ch\qos\logback\logback-core\1.4.8\logback-core-1.4.8.jar;C:\Users\levan\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.20.0\log4j-to-slf4j-2.20.0.jar;C:\Users\levan\.m2\repository\org\apache\logging\log4j\log4j-api\2.20.0\log4j-api-2.20.0.jar;C:\Users\levan\.m2\repository\org\slf4j\jul-to-slf4j\2.0.7\jul-to-slf4j-2.0.7.jar;C:\Users\levan\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\levan\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.1.2\spring-boot-starter-json-3.1.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.2\jackson-datatype-jdk8-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.2\jackson-datatype-jsr310-2.15.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.1.2\spring-boot-starter-tomcat-3.1.2.jar;C:\Users\levan\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.11\tomcat-embed-core-10.1.11.jar;C:\Users\levan\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.11\tomcat-embed-el-10.1.11.jar;C:\Users\levan\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.11\tomcat-embed-websocket-10.1.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-web\6.0.11\spring-web-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-beans\6.0.11\spring-beans-6.0.11.jar;C:\Users\levan\.m2\repository\io\micrometer\micrometer-observation\1.11.2\micrometer-observation-1.11.2.jar;C:\Users\levan\.m2\repository\io\micrometer\micrometer-commons\1.11.2\micrometer-commons-1.11.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-webmvc\6.0.11\spring-webmvc-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-context\6.0.11\spring-context-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-expression\6.0.11\spring-expression-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.1.2\spring-boot-starter-data-jpa-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.1.2\spring-boot-starter-aop-3.1.2.jar;C:\Users\levan\.m2\repository\org\aspectj\aspectjweaver\1.9.19\aspectjweaver-1.9.19.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.1.2\spring-boot-starter-jdbc-3.1.2.jar;C:\Users\levan\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\levan\.m2\repository\org\springframework\spring-jdbc\6.0.11\spring-jdbc-6.0.11.jar;C:\Users\levan\.m2\repository\org\hibernate\orm\hibernate-core\6.2.6.Final\hibernate-core-6.2.6.Final.jar;C:\Users\levan\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\levan\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\levan\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\levan\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\levan\.m2\repository\io\smallrye\jandex\3.0.5\jandex-3.0.5.jar;C:\Users\levan\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\levan\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.3\jaxb-runtime-4.0.3.jar;C:\Users\levan\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.3\jaxb-core-4.0.3.jar;C:\Users\levan\.m2\repository\org\glassfish\jaxb\txw2\4.0.3\txw2-4.0.3.jar;C:\Users\levan\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\levan\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\levan\.m2\repository\org\antlr\antlr4-runtime\4.10.1\antlr4-runtime-4.10.1.jar;C:\Users\levan\.m2\repository\org\springframework\data\spring-data-jpa\3.1.2\spring-data-jpa-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\data\spring-data-commons\3.1.2\spring-data-commons-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-orm\6.0.11\spring-orm-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-tx\6.0.11\spring-tx-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-aspects\6.0.11\spring-aspects-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.1.2\spring-boot-starter-security-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-aop\6.0.11\spring-aop-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-config\6.1.2\spring-security-config-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-web\6.1.2\spring-security-web-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-mail\3.1.2\spring-boot-starter-mail-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\spring-context-support\6.0.11\spring-context-support-6.0.11.jar;C:\Users\levan\.m2\repository\org\eclipse\angus\jakarta.mail\1.1.0\jakarta.mail-1.1.0.jar;C:\Users\levan\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\levan\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\3.1.2\spring-boot-starter-thymeleaf-3.1.2.jar;C:\Users\levan\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.1.RELEASE\thymeleaf-spring6-3.1.1.RELEASE.jar;C:\Users\levan\.m2\repository\nz\net\ultraq\thymeleaf\thymeleaf-layout-dialect\3.3.0\thymeleaf-layout-dialect-3.3.0.jar;C:\Users\levan\.m2\repository\org\apache\groovy\groovy\4.0.13\groovy-4.0.13.jar;C:\Users\levan\.m2\repository\nz\net\ultraq\groovy\groovy-extensions\2.1.0\groovy-extensions-2.1.0.jar;C:\Users\levan\.m2\repository\nz\net\ultraq\thymeleaf\thymeleaf-expression-processor\3.2.0\thymeleaf-expression-processor-3.2.0.jar;C:\Users\levan\.m2\repository\org\thymeleaf\thymeleaf\3.1.1.RELEASE\thymeleaf-3.1.1.RELEASE.jar;C:\Users\levan\.m2\repository\ognl\ognl\3.3.4\ognl-3.3.4.jar;C:\Users\levan\.m2\repository\org\javassist\javassist\3.29.0-GA\javassist-3.29.0-GA.jar;C:\Users\levan\.m2\repository\org\attoparser\attoparser\2.0.6.RELEASE\attoparser-2.0.6.RELEASE.jar;C:\Users\levan\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\levan\.m2\repository\org\slf4j\slf4j-api\2.0.7\slf4j-api-2.0.7.jar;C:\Users\levan\.m2\repository\org\mapstruct\mapstruct\1.5.5.Final\mapstruct-1.5.5.Final.jar;C:\Users\levan\.m2\repository\org\mapstruct\mapstruct-processor\1.5.5.Final\mapstruct-processor-1.5.5.Final.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.2\jackson-module-parameter-names-2.15.2.jar;C:\Users\levan\.m2\repository\com\h2database\h2\2.1.214\h2-2.1.214.jar;C:\Users\levan\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\levan\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\levan\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\levan\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\levan\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.1.0\springdoc-openapi-starter-webmvc-ui-2.1.0.jar;C:\Users\levan\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.1.0\springdoc-openapi-starter-webmvc-api-2.1.0.jar;C:\Users\levan\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.1.0\springdoc-openapi-starter-common-2.1.0.jar;C:\Users\levan\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.9\swagger-core-jakarta-2.2.9.jar;C:\Users\levan\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\levan\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.9\swagger-annotations-jakarta-2.2.9.jar;C:\Users\levan\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.9\swagger-models-jakarta-2.2.9.jar;C:\Users\levan\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\levan\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.2\jackson-dataformat-yaml-2.15.2.jar;C:\Users\levan\.m2\repository\org\webjars\swagger-ui\4.18.2\swagger-ui-4.18.2.jar;C:\Users\levan\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.1.2\spring-boot-starter-test-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-test\3.1.2\spring-boot-test-3.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.1.2\spring-boot-test-autoconfigure-3.1.2.jar;C:\Users\levan\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\levan\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.0\jakarta.xml.bind-api-4.0.0.jar;C:\Users\levan\.m2\repository\net\minidev\json-smart\2.4.11\json-smart-2.4.11.jar;C:\Users\levan\.m2\repository\net\minidev\accessors-smart\2.4.11\accessors-smart-2.4.11.jar;C:\Users\levan\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\levan\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\levan\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.3\junit-jupiter-5.9.3.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\levan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\levan\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\levan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.3\junit-jupiter-params-5.9.3.jar;C:\Users\levan\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\levan\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;C:\Users\levan\.m2\repository\org\mockito\mockito-junit-jupiter\5.3.1\mockito-junit-jupiter-5.3.1.jar;C:\Users\levan\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\levan\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\levan\.m2\repository\org\springframework\spring-core\6.0.11\spring-core-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-jcl\6.0.11\spring-jcl-6.0.11.jar;C:\Users\levan\.m2\repository\org\springframework\spring-test\6.0.11\spring-test-6.0.11.jar;C:\Users\levan\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\levan\.m2\repository\org\mockito\mockito-core\5.5.0\mockito-core-5.5.0.jar;C:\Users\levan\.m2\repository\net\bytebuddy\byte-buddy\1.14.5\byte-buddy-1.14.5.jar;C:\Users\levan\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.5\byte-buddy-agent-1.14.5.jar;C:\Users\levan\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-test\6.1.2\spring-security-test-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-core\6.1.2\spring-security-core-6.1.2.jar;C:\Users\levan\.m2\repository\org\springframework\security\spring-security-crypto\6.1.2\spring-security-crypto-6.1.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\levan"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\levan\OneDrive\Documents\customer-notification-service"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\levan\AppData\Local\Temp\surefire12069945888507809939\surefirebooter-20250612020914702_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.4+7-LTS"/>
+    <property name="user.name" value="levan"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.4+7"/>
+    <property name="localRepository" value="C:\Users\levan\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\levan\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="8"/>
+    <property name="catalina.home" value="C:\Users\levan\AppData\Local\Temp\tomcat.0.3454782033823784853"/>
+    <property name="java.version" value="21.0.4"/>
+    <property name="user.dir" value="C:\Users\levan\OneDrive\Documents\customer-notification-service"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="20232"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="C:\Users\levan\AppData\Local\Temp\tomcat.0.3454782033823784853"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\PowerShell\7;C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\PowerShell\7\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\levan\.fly\bin;C:\Users\levan\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\levan\AppData\Local\Programs\Python\Python310\;C:\Users\levan\AppData\Local\Microsoft\WindowsApps;C:\Users\levan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\levan\AppData\Roaming\npm;C:\Users\levan\.dotnet\tools;C:\Users\levan\.fly\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.4+7-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="fullApplicationFlow" classname="com.levanz.customer.controller.UltimateTest" time="0.566">
+    <system-out><![CDATA[2025-06-12T02:09:34.415+04:00  INFO 20232 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.levanz.customer.controller.UltimateTest]: UltimateTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-06-12T02:09:34.415+04:00  INFO 20232 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.levanz.customer.CustomerNotificationApplication for test class com.levanz.customer.controller.UltimateTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.2)
+
+2025-06-12T02:09:34.472+04:00  INFO 20232 --- [           main] c.l.customer.controller.UltimateTest     : Starting UltimateTest using Java 21.0.4 with PID 20232 (started by levan in C:\Users\levan\OneDrive\Documents\customer-notification-service)
+2025-06-12T02:09:34.472+04:00  INFO 20232 --- [           main] c.l.customer.controller.UltimateTest     : No active profile set, falling back to 1 default profile: "default"
+2025-06-12T02:09:34.788+04:00  INFO 20232 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-12T02:09:34.867+04:00  INFO 20232 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 5 JPA repository interfaces.
+2025-06-12T02:09:35.134+04:00  INFO 20232 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2025-06-12T02:09:35.150+04:00  INFO 20232 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-12T02:09:35.150+04:00  INFO 20232 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2025-06-12T02:09:35.354+04:00  INFO 20232 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-12T02:09:35.354+04:00  INFO 20232 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 882 ms
+2025-06-12T02:09:35.449+04:00  INFO 20232 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-12T02:09:35.464+04:00  INFO 20232 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-06-12T02:09:35.464+04:00  INFO 20232 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-12T02:09:35.464+04:00  INFO 20232 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2025-06-12T02:09:35.464+04:00  INFO 20232 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection conn70: url=jdbc:h2:mem:testdb user=SA
+2025-06-12T02:09:35.464+04:00  INFO 20232 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2025-06-12T02:09:35.527+04:00  INFO 20232 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-06-12T02:09:35.653+04:00  INFO 20232 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: drop table if exists addresses cascade 
+Hibernate: drop table if exists admins cascade 
+Hibernate: drop table if exists customers cascade 
+Hibernate: drop table if exists notifications cascade 
+Hibernate: drop table if exists preferences cascade 
+Hibernate: create table addresses (created_at timestamp(6) not null, customer_id bigint not null, id bigint generated by default as identity, city varchar(255) not null, country varchar(255) not null, street varchar(255) not null, type varchar(255) not null check (type in ('EMAIL','SMS','POSTAL')), zip varchar(255) not null, primary key (id))
+Hibernate: create table admins (id bigint generated by default as identity, password varchar(255) not null, role varchar(255) check (role in ('ADMIN')), username varchar(255) not null unique, primary key (id))
+Hibernate: create table customers (created_at timestamp(6) not null, id bigint generated by default as identity, email varchar(255), first_name varchar(255), last_name varchar(255), primary key (id))
+Hibernate: create table notifications (created_at timestamp(6) not null, customer_id bigint not null, id bigint generated by default as identity, updated_at timestamp(6), status varchar(255) not null check (status in ('PENDING','SENT','DELIVERED','FAILED')), primary key (id))
+Hibernate: create table preferences (opted_in boolean not null, customer_id bigint not null, id bigint generated by default as identity, updated_at timestamp(6) not null, channel varchar(255) not null, primary key (id))
+Hibernate: alter table if exists addresses add constraint FKhrpf5e8dwasvdc5cticysrt2k foreign key (customer_id) references customers
+Hibernate: alter table if exists notifications add constraint FK30dp6ycner3dgso3scgc9vghy foreign key (customer_id) references customers
+Hibernate: alter table if exists preferences add constraint FKm4nca0u8qisyxgcuxmcwyxem5 foreign key (customer_id) references customers
+2025-06-12T02:09:35.669+04:00  INFO 20232 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-12T02:09:35.825+04:00  WARN 20232 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-12T02:09:35.935+04:00  INFO 20232 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67cce6e8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d3a7c31, org.springframework.security.web.context.SecurityContextHolderFilter@3f08b915, org.springframework.security.web.header.HeaderWriterFilter@641ff891, org.springframework.security.web.authentication.logout.LogoutFilter@4fbabaca, com.levanz.customer.security.JwtAuthenticationFilter@792841ab, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2aae170c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@316eb9b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5efdf532, org.springframework.security.web.session.SessionManagementFilter@41e8b043, org.springframework.security.web.access.ExceptionTranslationFilter@15e01a72, org.springframework.security.web.access.intercept.AuthorizationFilter@51110a39]
+2025-06-12T02:09:35.951+04:00  WARN 20232 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2025-06-12T02:09:36.015+04:00  INFO 20232 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2025-06-12T02:09:36.015+04:00  INFO 20232 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-06-12T02:09:36.015+04:00  INFO 20232 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-06-12T02:09:36.061+04:00  INFO 20232 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50877 (http) with context path ''
+2025-06-12T02:09:36.061+04:00  INFO 20232 --- [           main] c.l.customer.controller.UltimateTest     : Started UltimateTest in 1.646 seconds (process running for 21.208)
+Hibernate: select a1_0.id,a1_0.password,a1_0.role,a1_0.username from admins a1_0 where a1_0.username=?
+Hibernate: insert into admins (password,role,username,id) values (?,?,?,default)
+admin createdadmin/admin123
+2025-06-12T02:09:36.187+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/auth/login':
+
+org.springframework.mock.web.MockHttpServletRequest@59e97f75
+
+servletPath:
+pathInfo:/api/auth/login
+headers: 
+Content-Type: application/json;charset=UTF-8
+Content-Length: 42
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select a1_0.id,a1_0.password,a1_0.role,a1_0.username from admins a1_0 where a1_0.username=?
+2025-06-12T02:09:36.391+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/customers':
+
+org.springframework.mock.web.MockHttpServletRequest@2709109
+
+servletPath:
+pathInfo:/api/customers
+headers: 
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+Content-Length: 64
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: insert into customers (created_at,email,first_name,last_name,id) values (?,?,?,?,default)
+2025-06-12T02:09:36.417+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/customers/1/addresses':
+
+org.springframework.mock.web.MockHttpServletRequest@5569ea9e
+
+servletPath:
+pathInfo:/api/customers/1/addresses
+headers: 
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+Content-Length: 92
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+Hibernate: insert into addresses (city,country,created_at,customer_id,street,type,zip,id) values (?,?,?,?,?,?,?,default)
+2025-06-12T02:09:36.470+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/customers/1/preferences':
+
+org.springframework.mock.web.MockHttpServletRequest@49c96044
+
+servletPath:
+pathInfo:/api/customers/1/preferences
+headers: 
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+Content-Length: 34
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+Hibernate: insert into preferences (channel,customer_id,opted_in,updated_at,id) values (?,?,?,?,default)
+2025-06-12T02:09:36.485+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/customers/1/notifications':
+
+org.springframework.mock.web.MockHttpServletRequest@de63894
+
+servletPath:
+pathInfo:/api/customers/1/notifications
+headers: 
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+Content-Length: 20
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+Hibernate: insert into notifications (created_at,customer_id,status,updated_at,id) values (?,?,?,?,default)
+2025-06-12T02:09:36.533+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for POST '/api/customers/search':
+
+org.springframework.mock.web.MockHttpServletRequest@184775a1
+
+servletPath:
+pathInfo:/api/customers/search
+headers: 
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+Content-Length: 78
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select distinct c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 left join preferences p1_0 on c1_0.id=p1_0.customer_id where 1=1 and lower(c1_0.first_name) like ? escape '' and p1_0.opted_in=? offset ? rows fetch first ? rows only
+Hibernate: select a1_0.customer_id,a1_0.id,a1_0.city,a1_0.country,a1_0.created_at,a1_0.street,a1_0.type,a1_0.zip from addresses a1_0 where a1_0.customer_id=?
+Hibernate: select p1_0.customer_id,p1_0.id,p1_0.channel,p1_0.opted_in,p1_0.updated_at from preferences p1_0 where p1_0.customer_id=?
+Hibernate: select n1_0.customer_id,n1_0.id,n1_0.created_at,n1_0.status,n1_0.updated_at from notifications n1_0 where n1_0.customer_id=?
+2025-06-12T02:09:36.564+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for PUT '/api/customers/batch':
+
+org.springframework.mock.web.MockHttpServletRequest@5caf0976
+
+servletPath:
+pathInfo:/api/customers/batch
+headers: 
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+Content-Length: 71
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+Hibernate: select a1_0.customer_id,a1_0.id,a1_0.city,a1_0.country,a1_0.created_at,a1_0.street,a1_0.type,a1_0.zip from addresses a1_0 where a1_0.customer_id=?
+Hibernate: select p1_0.customer_id,p1_0.id,p1_0.channel,p1_0.opted_in,p1_0.updated_at from preferences p1_0 where p1_0.customer_id=?
+Hibernate: select n1_0.customer_id,n1_0.id,n1_0.created_at,n1_0.status,n1_0.updated_at from notifications n1_0 where n1_0.customer_id=?
+Hibernate: update customers set email=?,first_name=?,last_name=? where id=?
+2025-06-12T02:09:36.595+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/reports/preferences':
+
+org.springframework.mock.web.MockHttpServletRequest@1693b8dc
+
+servletPath:
+pathInfo:/api/reports/preferences
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select p1_0.id,p1_0.channel,p1_0.customer_id,p1_0.opted_in,p1_0.updated_at from preferences p1_0
+2025-06-12T02:09:36.627+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/reports/notifications':
+
+org.springframework.mock.web.MockHttpServletRequest@7fd1342c
+
+servletPath:
+pathInfo:/api/reports/notifications
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select n1_0.id,n1_0.created_at,n1_0.customer_id,n1_0.status,n1_0.updated_at from notifications n1_0
+2025-06-12T02:09:36.627+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/customers/1':
+
+org.springframework.mock.web.MockHttpServletRequest@31d0467d
+
+servletPath:
+pathInfo:/api/customers/1
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+Hibernate: select a1_0.customer_id,a1_0.id,a1_0.city,a1_0.country,a1_0.created_at,a1_0.street,a1_0.type,a1_0.zip from addresses a1_0 where a1_0.customer_id=?
+Hibernate: select p1_0.customer_id,p1_0.id,p1_0.channel,p1_0.opted_in,p1_0.updated_at from preferences p1_0 where p1_0.customer_id=?
+Hibernate: select n1_0.customer_id,n1_0.id,n1_0.created_at,n1_0.status,n1_0.updated_at from notifications n1_0 where n1_0.customer_id=?
+2025-06-12T02:09:36.658+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for DELETE '/api/customers/1':
+
+org.springframework.mock.web.MockHttpServletRequest@2ad4ade7
+
+servletPath:
+pathInfo:/api/customers/1
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select count(*) from customers c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+Hibernate: select a1_0.customer_id,a1_0.id,a1_0.city,a1_0.country,a1_0.created_at,a1_0.street,a1_0.type,a1_0.zip from addresses a1_0 where a1_0.customer_id=?
+Hibernate: select n1_0.customer_id,n1_0.id,n1_0.created_at,n1_0.status,n1_0.updated_at from notifications n1_0 where n1_0.customer_id=?
+Hibernate: select p1_0.customer_id,p1_0.id,p1_0.channel,p1_0.opted_in,p1_0.updated_at from preferences p1_0 where p1_0.customer_id=?
+Hibernate: delete from addresses where id=?
+Hibernate: delete from notifications where id=?
+Hibernate: delete from preferences where id=?
+Hibernate: delete from customers where id=?
+2025-06-12T02:09:36.674+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/customers/1':
+
+org.springframework.mock.web.MockHttpServletRequest@453f2ce6
+
+servletPath:
+pathInfo:/api/customers/1
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select c1_0.id,c1_0.created_at,c1_0.email,c1_0.first_name,c1_0.last_name from customers c1_0 where c1_0.id=?
+2025-06-12T02:09:36.705+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/customers/1/addresses':
+
+org.springframework.mock.web.MockHttpServletRequest@7895bad0
+
+servletPath:
+pathInfo:/api/customers/1/addresses
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select count(*) from customers c1_0 where c1_0.id=?
+2025-06-12T02:09:36.718+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/customers/1/preferences':
+
+org.springframework.mock.web.MockHttpServletRequest@3358ea01
+
+servletPath:
+pathInfo:/api/customers/1/preferences
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select count(*) from customers c1_0 where c1_0.id=?
+2025-06-12T02:09:36.721+04:00  INFO 20232 --- [           main] Spring Security Debugger                 : 
+
+************************************************************
+
+Request received for GET '/api/customers/1/notifications':
+
+org.springframework.mock.web.MockHttpServletRequest@32809f98
+
+servletPath:
+pathInfo:/api/customers/1/notifications
+headers: 
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzQ5Njc5Nzc2LCJleHAiOjE3NDk3NjYxNzZ9.kvvpZUMA7iiDIGAZ5_njtjUol57ybTeWaI834dgO-diBgNZyts0ExqErthtpzG9bB66yifDsvzgyHlwVggJLEA
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtAuthenticationFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+Hibernate: select count(*) from customers c1_0 where c1_0.id=?
+]]></system-out>
+  </testcase>
+</testsuite>

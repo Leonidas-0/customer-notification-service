@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdminDto {
+    private Long id; 
     @NotBlank
     private String username;
 

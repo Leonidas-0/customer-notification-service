@@ -34,9 +34,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (contextPath != null && !contextPath.isEmpty()) {
             path = path.substring(contextPath.length());
         }
-        
-        // Only apply JWT filter to API endpoints
-        return !path.startsWith("/api/");
+                return !path.startsWith("/api/");
     }
 
     @Override

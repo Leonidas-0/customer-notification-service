@@ -205,14 +205,27 @@ if (window.location.pathname.startsWith('/ui/customers/')) {
             data.forEach(admin => $tbody.append(`<tr><td>${admin.id}</td><td>${admin.username}</td><td>${admin.role}</td><td class="text-end"><button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#adminModal" data-id="${admin.id}"><i class="bi bi-pencil-fill"></i></button> <button class="btn btn-sm btn-danger btn-delete-admin" data-id="${admin.id}"><i class="bi bi-trash-fill"></i></button></td></tr>`));
         }});
 
-        $('#adminModal').on('show.bs.modal', function(e) {
-            const id = $(e.relatedTarget).data('id');
-            const $form = $(this).find('form');
-            if($form.length) $form[0].reset();
-            $form.find('#adminId').val('');
-            $(this).find('.modal-title').text(id ? 'Edit Admin' : 'Add Admin');
-            if(id) apiRequest({url: `${apiBaseUrl}/admins/${id}`, success: a => $form.find('#username').val(a.username) });
+$('#adminModal').on('show.bs.modal', function(e) {
+    const id = $(e.relatedTarget).data('id');
+    const $form = $(this).find('form');
+    if($form.length) $form[0].reset();
+    
+    $(this).find('.modal-title').text(id ? 'Edit Admin' : 'Add Admin');
+    
+    if(id) {
+        $form.find('#adminId').val(id);
+
+        apiRequest({
+            url: `${apiBaseUrl}/admins/${id}`, 
+            success: function(admin) {
+                $form.find('#username').val(admin.username);
+            }
         });
+    } else {
+        $form.find('#adminId').val('');
+    }
+});
+
 
         $('#admin-form').on('submit', function(e) {
             e.preventDefault();

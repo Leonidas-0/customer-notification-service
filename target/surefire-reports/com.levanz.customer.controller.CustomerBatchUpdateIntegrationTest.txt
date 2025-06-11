@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.levanz.customer.controller.CustomerBatchUpdateIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.027 s - in com.levanz.customer.controller.CustomerBatchUpdateIntegrationTest

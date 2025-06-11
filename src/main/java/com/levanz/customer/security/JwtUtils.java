@@ -13,7 +13,9 @@ import java.security.Key;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
+/**
+ * Utility class for handling JWT tokens, including creation, validation, and extraction of claims.
+ */
 @Component
 public class JwtUtils {
 
