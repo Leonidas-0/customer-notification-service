@@ -35,7 +35,7 @@ The service successfully implements all the key functional requirements outlined
 | **Backend** | Java 17, Spring Boot 3.1.2                       |
 | **Data Persistence** | Spring Data JPA, Hibernate                       |
 | **Database** | H2 (for development/testing), MySQL (supported)  |
-| **Security** | Spring Security 6, JSON Web Tokens (JWT)         |
+| **Security** | Spring Security, JSON Web Tokens (JWT)         |
 | **API Documentation** | SpringDoc (OpenAPI / Swagger UI)               |
 | **DTO Mapping** | MapStruct                                        |
 | **Frontend** | Thymeleaf, HTML5, CSS3, JavaScript, Bootstrap 5  |
