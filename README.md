@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[cite_start]This project is a robust, full-featured microservice designed to centralize and manage customer contact information, notification preferences, and delivery statuses. [cite_start]It serves as a single source of truth for all customer communication data, providing a secure and efficient RESTful API for other systems in the ecosystem.
+This project is a robust, full-featured microservice designed to centralize and manage customer contact information, notification preferences, and delivery statuses. It serves as a single source of truth for all customer communication data, providing a secure and efficient RESTful API for other systems in the ecosystem.
 
 The application is built using a modern Java technology stack, emphasizing a clean, maintainable, and scalable architecture.
 
@@ -11,21 +11,21 @@ The application is built using a modern Java technology stack, emphasizing a cle
 The service successfully implements all the key functional requirements outlined in the project specification:
 
 -   **Admin User Management**:
-    -   [cite_start][x] Secure, role-based authentication for administrators using JWT. 
-    -   [cite_start][x] Endpoints for creating and managing admin accounts. 
+    -    Secure, role-based authentication for administrators using JWT. 
+    -    Endpoints for creating and managing admin accounts. 
 -   **Full Customer & Data Lifecycle Management**:
-    -   [cite_start][x] Complete CRUD (Create, Read, Update, Delete) operations for Customers, Addresses, Preferences, and Notifications. 
-    -   [cite_start][x] Support for multiple address types (Email, SMS, Postal). 
-    -   [cite_start][x] Manages customer notification opt-in/opt-out preferences per channel. 
+    -    Complete CRUD (Create, Read, Update, Delete) operations for Customers, Addresses, Preferences, and Notifications. 
+    -    Support for multiple address types (Email, SMS, Postal). 
+    -    Manages customer notification opt-in/opt-out preferences per channel. 
 -   **Advanced Functionality**:
-    -   [cite_start][x] High-performance batch updates for customer records. 
-    -   [cite_start][x] Dynamic, criteria-based customer search and filtering. 
-    -   [cite_start][x] Paginated and sortable lists for all major entities. 
+    -    High-performance batch updates for customer records. 
+    -    Dynamic, criteria-based customer search and filtering. 
+    -    Paginated and sortable lists for all major entities. 
 -   **Reporting & Analytics**:
-    -   [cite_start][x] API endpoints to generate real-time statistics on notification statuses (e.g., PENDING, SENT, FAILED). 
-    -   [cite_start][x] API endpoints to report on customer preference distribution by channel (e.g., number of customers opted-in for EMAIL). 
+    -    API endpoints to generate real-time statistics on notification statuses (e.g., PENDING, SENT, FAILED). 
+    -    API endpoints to report on customer preference distribution by channel (e.g., number of customers opted-in for EMAIL). 
 -   **Web Interface**:
-    -   [cite_start][x] A clean, responsive, and easy-to-use web interface for administrators to manage all aspects of the system. 
+    -    A clean, responsive, and easy-to-use web interface for administrators to manage all aspects of the system. 
 
 ## Technology Stack
 
@@ -44,14 +44,14 @@ The project leverages a modern and powerful technology stack, chosen for its rob
 
 ## Architectural Design
 
-[cite_start]The application is built upon a well-organized, layered architecture to ensure a clean separation of concerns, high maintainability, and scalability.
+The application is built upon a well-organized, layered architecture to ensure a clean separation of concerns, high maintainability, and scalability.
 
 1.  **Controller Layer**: Handles all incoming HTTP requests. Its sole responsibility is to validate input, delegate business logic to the service layer, and format the response. It uses DTOs (Data Transfer Objects) to define its public API contract, keeping it separate from the internal data model.
 2.  **Service Layer**: Contains the core business logic of the application. It orchestrates operations between the repositories and other services, handles transactions (`@Transactional`), and ensures data integrity.
 3.  **Repository Layer**: An abstraction over the database using Spring Data JPA. It manages all data access and provides a clean, high-level interface for CRUD operations and custom queries.
 4.  **Security Layer**: Integrated via Spring Security. A `JwtAuthenticationFilter` intercepts API requests to validate JWTs for stateless, secure authentication. User and role details are managed by a `UserDetailsServiceImpl`. Access control is enforced at both the endpoint level (`SecurityConfig`) and method level (`@PreAuthorize`).
 5.  **Specification & DTOs**: Advanced search functionality is implemented using the JPA Specification pattern (`CustomerSpecification`), allowing for the dynamic, type-safe construction of complex queries. DTOs are used throughout to ensure a clean separation between the database entities and the API layer, with object mapping handled efficiently by MapStruct.
-6.  [cite_start]**Exception Handling**: A global exception handler (`@RestControllerAdvice`) intercepts exceptions and transforms them into consistent, user-friendly JSON error responses, promoting graceful error handling.
+6.  **Exception Handling**: A global exception handler (`@RestControllerAdvice`) intercepts exceptions and transforms them into consistent, user-friendly JSON error responses, promoting graceful error handling.
 
 ## Testing Strategy
 
@@ -62,7 +62,7 @@ The project is thoroughly tested using a suite of **integration tests** that pro
 -   **End-to-End Validation**: The `UltimateTest.java` class provides a complete end-to-end test that simulates a complex user workflow, ensuring all parts of the system work together cohesively.
 -   **Test Isolation**: Each test class is isolated from others using `@DirtiesContext` to guarantee that tests do not interfere with one another and that results are reliable and repeatable.
 
-[cite_start]This robust testing strategy ensures that the application meets its functional requirements and is ready for deployment.
+This robust testing strategy ensures that the application meets its functional requirements and is ready for deployment.
 
 ## Getting Started
 
