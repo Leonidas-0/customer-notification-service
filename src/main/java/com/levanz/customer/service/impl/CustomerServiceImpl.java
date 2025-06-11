@@ -85,7 +85,8 @@ public class CustomerServiceImpl implements CustomerService {
                 criteria.getFirstName(),
                 criteria.getLastName(),
                 criteria.getEmail(),
-                criteria.getOptedIn()
+                criteria.getOptedIn(),
+                criteria.getChannel()
             ),
             pageable
         ).map(mapper::toDto);

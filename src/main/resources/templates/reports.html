@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(pageTitle='Reports', content=~{::content})}">
+
+<section th:fragment="content">
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <i class="bi bi-sliders me-2"></i>Preference Statistics by Channel
+                </div>
+                <div class="card-body" id="pref-stats-body">
+                    </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <i class="bi bi-bell-fill me-2"></i>Notification Statistics by Status
+                </div>
+                <div class="card-body" id="notif-stats-body">
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</html>

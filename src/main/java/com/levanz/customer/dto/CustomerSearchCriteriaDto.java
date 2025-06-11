@@ -10,4 +10,5 @@ public class CustomerSearchCriteriaDto {
     private String lastName;
     private String email;
     private Boolean optedIn; 
+    private String channel; 
 }

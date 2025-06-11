@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(pageTitle='Admin Users', content=~{::content})}">
+<section th:fragment="content">
+    <div class="card shadow-sm">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Administrator Management</h5>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminModal" data-id="">
+                <i class="bi bi-plus-lg me-1"></i> Add Admin
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead><tr><th>ID</th><th>Username</th><th>Role</th><th class="text-end">Actions</th></tr></thead>
+                    <tbody id="admin-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="adminModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="admin-modal-title"></h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form id="admin-form"><input type="hidden" id="adminId"><div class="mb-3"><label for="username" class="form-label">Username</label><input type="text" class="form-control" id="username" required></div><div class="mb-3"><label for="password" class="form-label">Password</label><input type="password" class="form-control" id="password"><small class="form-text text-muted">Leave blank to keep current password when editing.</small></div></form></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="submit" form="admin-form" class="btn btn-primary">Save changes</button></div></div></div></div>
+</section>
+</html>

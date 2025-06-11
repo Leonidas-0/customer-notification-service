@@ -15,7 +15,8 @@ public class CustomerSpecification {
         String firstName,
         String lastName,
         String email,
-        Boolean optedIn
+        Boolean optedIn,
+        String channel
     ) {
         return (root, query, cb) -> {
             Predicate p = cb.conjunction();

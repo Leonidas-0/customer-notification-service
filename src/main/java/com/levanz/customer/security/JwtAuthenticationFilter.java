@@ -1,3 +1,4 @@
+
 package com.levanz.customer.security;
 
 import jakarta.servlet.FilterChain;
@@ -19,10 +20,23 @@ import java.util.stream.Collectors;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtUtils jwt;
+    private final JwtUtils jwtUtils;
 
-    public JwtAuthenticationFilter(JwtUtils jwt) {
-        this.jwt = jwt;
+    public JwtAuthenticationFilter(JwtUtils jwtUtils) {
+        this.jwtUtils = jwtUtils;
+    }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getRequestURI();
+        String contextPath = request.getContextPath();
+        
+        if (contextPath != null && !contextPath.isEmpty()) {
+            path = path.substring(contextPath.length());
+        }
+        
+        // Only apply JWT filter to API endpoints
+        return !path.startsWith("/api/");
     }
 
     @Override
@@ -31,40 +45,49 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain
     ) throws ServletException, IOException {
-        String uri = request.getRequestURI();
+        
+        try {
+            String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+            
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                filterChain.doFilter(request, response);
+                return;
+            }
 
-        // Bypass JWT authentication for any non-API path (UI pages, static assets, etc.)
-        String context = request.getContextPath();
-        if (!uri.startsWith(context + "/api/")) {
-            filterChain.doFilter(request, response);
-            return;
-        }
+            String token = authHeader.substring(7);
+            
+            if (token.isEmpty()) {
+                filterChain.doFilter(request, response);
+                return;
+            }
 
-        // For /api/** paths, enforce JWT auth
-        String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            filterChain.doFilter(request, response);
-            return;
-        }
+            String username = jwtUtils.extractUsername(token);
 
-        String token = authHeader.substring(7);
-        String username = jwt.extractUsername(token);
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                
+                if (jwtUtils.isTokenValid(token, username)) {
+                    
+                    List<String> roles = jwtUtils.extractAuthorities(token);
+                    List<SimpleGrantedAuthority> authorities = roles.stream()
+                            .map(SimpleGrantedAuthority::new)
+                            .collect(Collectors.toList());
 
-        if (username != null
-                && SecurityContextHolder.getContext().getAuthentication() == null
-                && jwt.isTokenValid(token, username)) {
+                    UsernamePasswordAuthenticationToken authToken = 
+                            new UsernamePasswordAuthenticationToken(
+                                    username, 
+                                    null, 
+                                    authorities
+                            );
+                    
+                    authToken.setDetails(
+                            new WebAuthenticationDetailsSource().buildDetails(request)
+                    );
 
-            List<SimpleGrantedAuthority> authorities = jwt.extractAuthorities(token).stream()
-                    .map(SimpleGrantedAuthority::new)
-                    .collect(Collectors.toList());
-
-            UsernamePasswordAuthenticationToken authToken =
-                    new UsernamePasswordAuthenticationToken(username, null, authorities);
-            authToken.setDetails(
-                    new WebAuthenticationDetailsSource().buildDetails(request)
-            );
-
-            SecurityContextHolder.getContext().setAuthentication(authToken);
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Cannot set user authentication: " + e.getMessage(), e);
         }
 
         filterChain.doFilter(request, response);

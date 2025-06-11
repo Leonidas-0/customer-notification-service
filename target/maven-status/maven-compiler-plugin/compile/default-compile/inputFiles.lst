@@ -22,7 +22,7 @@ C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\co
 C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\config\RestTemplateConfig.java
 C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\entity\NotificationStatus.java
 C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\entity\Customer.java
-C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\ui\UiController.java
+C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\ui\WebController.java
 C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\controller\ReportController.java
 C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\repository\AddressRepository.java
 C:\Users\levan\OneDrive\Documents\customer-notification-service\src\main\java\com\levanz\customer\config\OpenApiConfig.java

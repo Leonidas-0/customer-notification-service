@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout(pageTitle='Customers', content=~{::content})}">
+
+<section th:fragment="content">
+    <div class="card shadow-sm">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Customer Management</h5>
+            <div class="d-flex align-items-center">
+                <form class="d-flex me-2" id="search-form">
+                    <input class="form-control" type="search" placeholder="Search..." name="query" aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+                </form>
+                <button class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#advancedSearchModal">Advanced</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customerModal" data-id="">
+                    <i class="bi bi-plus-lg me-1"></i> Add
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="id">ID <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="sortable" data-sort="firstName">First Name <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="sortable" data-sort="lastName">Last Name <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="sortable" data-sort="email">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customer-table-body"></tbody>
+                </table>
+            </div>
+             <nav id="pagination-controls" class="d-flex justify-content-center mt-3"></nav>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customer-modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customer-modal-title">Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="customer-form">
+                        <input type="hidden" id="customerId">
+                        <div class="mb-3"><label for="firstName" class="form-label">First Name</label><input type="text" class="form-control" id="firstName" required></div>
+                        <div class="mb-3"><label for="lastName" class="form-label">Last Name</label><input type="text" class="form-control" id="lastName" required></div>
+                        <div class="mb-3"><label for="email" class="form-label">Email</label><input type="email" class="form-control" id="email" required></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="customer-form" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="advancedSearchModal" tabindex="-1" aria-labelledby="advancedSearchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title" id="advancedSearchModalLabel">Advanced Search</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <form id="advanced-search-form">
+                        <div class="row g-3">
+                            <div class="col-md-6"><label class="form-label">First Name</label><input type="text" class="form-control" name="firstName"></div>
+                            <div class="col-md-6"><label class="form-label">Last Name</label><input type="text" class="form-control" name="lastName"></div>
+                            <div class="col-12"><label class="form-label">Email</label><input type="email" class="form-control" name="email"></div>
+                            <div class="col-md-6"><label class="form-label">Preference Channel</label><select class="form-select" name="channel"><option value="">Any</option><option>EMAIL</option><option>SMS</option><option>POSTAL</option><option>PUSH</option></select></div>
+                            <div class="col-md-6"><label class="form-label">Opt-In Status</label><select class="form-select" name="optedIn"><option value="">Any</option><option value="true">Opted In</option><option value="false">Opted Out</option></select></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="reset-search-btn">Reset</button>
+                    <button type="submit" form="advanced-search-form" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</html>
