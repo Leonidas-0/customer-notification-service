@@ -76,10 +76,9 @@ Follow these instructions to get the application running on your local machine.
 
 1.  **Clone the Repository**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/Leonidas-0/customer-notification-service
     cd customer-notification-service
     ```
-
 2.  **Build the Application with the Maven Wrapper**
     The wrapper will automatically download the correct Maven version.
     * On **Linux** or **macOS**:
